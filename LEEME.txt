@@ -1,0 +1,6 @@
+MIS HORAS - Modo anime opcional (Naruto, Itachi, Goku y Vegeta).
+Se mantienen el modo original, los seis estilos de menú, el PIN y los registros en localStorage.
+Se agregan cuatro fondos ilustrados tomados de la maqueta aprobada y cuatro juegos de iconos anime.
+Antes de reemplazar archivos en GitHub, guarda un respaldo de tus registros desde Ajustes.
+Sube todos los archivos del ZIP a la raíz del repositorio (no el ZIP sin descomprimir).
+Face ID / Supabase no están incluidos. El PIN no cifra la información local.
