@@ -1,0 +1,12 @@
+MIS HORAS — PRUEBA DE DESBLOQUEO CON PASSKEY
+
+1. NO reemplazar la app habitual hasta probar en iPhone.
+2. Publicar en ruta de prueba HTTPS de GitHub Pages con origen y RP ID compatibles con Supabase.
+3. En Ajustes, enviar enlace al correo, abrirlo desde iPhone, registrar passkey.
+4. En Mi sueldo, tocar Desbloquear con Face ID / passkey.
+5. En Historial, Generar PDF privado solicita passkey cuando hay una registrada.
+6. PIN anterior permanece como alternativa.
+
+ADVERTENCIA: la información salarial y el PIN siguen en localStorage sin cifrar. La passkey protege la interfaz, NO cifra los datos locales. NO usar como sistema de seguridad fuerte.
+El prompt de iOS puede permitir Face ID o código del dispositivo. Supabase Passkeys es experimental.
+No borrar datos de Safari ni la aplicación instalada.
