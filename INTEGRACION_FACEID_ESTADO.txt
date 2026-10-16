@@ -1,0 +1,8 @@
+MIS HORAS — INTEGRACIÓN FACE ID / PASSKEYS
+Estado: preparación iniciada, NO publicada.
+Proyecto Supabase: https://irbvazbapubydsxxiblb.supabase.co
+Origen: MIS_HORAS_6_ESTILOS_MENU(1).zip
+Archivos conservados: index.html, app.js, sw.js, manifest.webmanifest, iconos.
+Hallazgos: el PIN está almacenado en texto claro en localStorage; el sueldo base también. El bloqueo actual es visual, no cifrado.
+Pendiente: verificar flujo Supabase passkeys, identidad inicial, reglas RLS, protección de salario, migración no destructiva, pruebas en iPhone.
+No subir a GitHub esta carpeta hasta que la implementación esté validada.
