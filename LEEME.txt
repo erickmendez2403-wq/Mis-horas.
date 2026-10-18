@@ -1,6 +1,7 @@
-MIS HORAS - Modo anime opcional (Naruto, Itachi, Goku y Vegeta).
-Se mantienen el modo original, los seis estilos de menú, el PIN y los registros en localStorage.
-Se agregan cuatro fondos ilustrados tomados de la maqueta aprobada y cuatro juegos de iconos anime.
-Antes de reemplazar archivos en GitHub, guarda un respaldo de tus registros desde Ajustes.
-Sube todos los archivos del ZIP a la raíz del repositorio (no el ZIP sin descomprimir).
-Face ID / Supabase no están incluidos. El PIN no cifra la información local.
+MIS HORAS — Comparación Anime Final
+
+Actualiza los archivos descomprimidos en el repositorio de MIS HORAS (NO Saiyan Arena). Conserva tus datos locales haciendo antes una copia desde Ajustes > Respaldo.
+
+Historial > Comparación de horas extras: tarjetas para horas/monto calculados, horas/monto pagados y diferencias; usa el PIN existente. El panel adopta los estilos Naruto, Itachi, Goku o Vegeta al activar Modo Anime y vuelve al tema normal al apagarlo. Inicio y el cálculo de horas no fueron modificados.
+
+Las imágenes son fondos originales ampliados y realzados, no ilustraciones nuevas. El diseño gráfico mostrado en conversación era conceptual y puede diferir del HTML real.
