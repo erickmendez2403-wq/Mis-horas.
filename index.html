@@ -1,203 +1,604 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0b1220"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="MIS HORAS"><meta name="description" content="Control personal de horas extras"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-180.png"><link rel="icon" href="icon-192.png"><title>MIS HORAS</title><style>
-:root{--bg1:#101e33;--bg2:#0b1220;--panel:#162437;--tile:#20374e;--hero1:#224d72;--hero2:#19334c;--accent:#73b4f8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#f6f9ff;background:#0b1220;font-synthesis:none}*{box-sizing:border-box}body{margin:0;background:linear-gradient(155deg,var(--bg1),var(--bg2) 48%);min-height:100dvh}button,input,select{font:inherit}button{cursor:pointer}.app{max-width:520px;margin:auto;padding:calc(env(safe-area-inset-top) + 20px) 17px calc(108px + env(safe-area-inset-bottom))}.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}.brand{display:flex;gap:11px;align-items:center}.brand img{width:47px;height:47px;border-radius:14px}.brand strong{font-size:19px;letter-spacing:.07em}.sub{font-size:11px;color:#90a6bf;margin-top:3px}.avatar{border:1px solid #314963;background:#17283d;padding:10px;border-radius:50%;color:#b6d2f0}.screen{display:none}.screen.active{display:block}.hero{background:linear-gradient(135deg,var(--hero1),var(--hero2) 70%,var(--bg2));padding:22px;border:1px solid #3a5872;border-radius:24px;box-shadow:0 14px 38px #0003;margin-bottom:16px}.eyebrow{color:#c4d6e9;font-size:13px}.amount{font-size:38px;letter-spacing:-1.6px;font-weight:750;margin:11px 0 8px}.hero-foot{display:flex;justify-content:space-between;gap:8px;color:#bcd1e6;font-size:12px}.green{color:#85e6b9!important}.panel{background:var(--panel);border:1px solid #263c53;border-radius:21px;padding:18px;margin:14px 0}.panel h2{font-size:16px;font-weight:700;margin:0 0 16px;display:flex;align-items:center;justify-content:space-between}.muted{color:#a3b9d0}.small{font-size:12px}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.tile{background:var(--tile);border-radius:15px;padding:15px}.tile .small{color:#a7c1d9}.tile b{font-size:25px;display:block;margin-top:5px}.line{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 0}.line strong{font-size:14px}.label{font-size:12px;color:#b4c9dc;display:block;margin:0 0 7px}.field{width:100%;border:1px solid #3a536e;background:#0e1c2e;color:#fff;border-radius:13px;padding:13px 12px;outline:none;min-width:0;color-scheme:dark}.field:focus{border-color:#80baff}.group{margin-bottom:14px}.rates{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.rate{background:#20374e;color:#b5cbe2;border:1px solid #2c455f;border-radius:12px;padding:12px 3px;font-weight:700}.rate.selected{background:var(--hero1);border-color:#8bc5ff;color:white}.rule{border:0;border-top:1px solid #304158;margin:16px 0}.daily{background:linear-gradient(120deg,#1d3b50,#193b3f);border-radius:16px;padding:17px;margin-top:13px}.daily .big{font-size:31px;color:#85e6b9;font-weight:750;margin:8px 0}.primary{background:var(--accent);color:#0b1a2d;border:0;border-radius:14px;padding:14px;font-weight:750;width:100%}.secondary{background:#20374e;color:#e1efff;border:1px solid #3c5570;border-radius:12px;padding:10px 13px}.danger{background:transparent;border:1px solid #754652;color:#ffb3be;border-radius:12px;padding:9px}.listitem{background:#182b40;border:1px solid #2a4058;border-radius:15px;padding:13px;margin:9px 0}.listitem .line{padding:2px 0}.listitem .actions{display:flex;gap:8px;justify-content:flex-end;margin-top:10px}.monthnav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:16px 0}.monthnav button{border:1px solid #3b536e;background:#20374e;color:white;border-radius:12px;padding:9px 14px}.monthnav span{text-transform:capitalize;font-weight:700}.page-title{font-size:23px;margin:4px 0 17px}.notice{background:#1c3349;color:#c1d7e9;border-radius:13px;padding:13px;font-size:12px;line-height:1.5}.nav{position:fixed;bottom:0;left:0;right:0;background:var(--panel);backdrop-filter:blur(18px);border-top:1px solid #2a4058;padding:9px 8px calc(10px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(4,1fr);z-index:5}.nav button{border:0;background:none;color:#8ea7c2;border-radius:12px;padding:8px 0;display:flex;flex-direction:column;gap:5px;align-items:center;font-size:10px}.nav button.active{color:white;background:#254668}.nav svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.center{text-align:center}.lock{font-size:44px;margin:10px 0}.toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%);background:#28543e;color:white;padding:12px 18px;border-radius:12px;display:none;z-index:9;white-space:nowrap;max-width:92%;font-size:13px}.foot{font-size:11px;color:#819bb5;line-height:1.5}.hide{display:none!important}.theme-toggle{border:1px solid #52627b;background:var(--panel);color:#fff;border-radius:13px;width:42px;height:42px;font-size:23px}.theme-panel{margin:-10px 0 18px;background:var(--panel);border:1px solid #40516a;border-radius:18px;padding:15px}.theme-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.theme-choice{color:#fff;background:var(--tile);border:2px solid transparent;border-radius:13px;padding:9px 4px;font-size:11px}.theme-choice.chosen{border-color:var(--accent)}.theme-swatch{display:flex;height:32px;overflow:hidden;border-radius:8px;margin-bottom:6px}.theme-swatch i{flex:1}.cutoff-note{font-size:12px;color:#c4d6e9;line-height:1.6}
-.nav{--menu-icon-color:#67aeff}.nav button svg{color:var(--menu-icon-color)}.nav button.active svg{filter:drop-shadow(0 0 4px var(--menu-icon-color))}
-/* Version final: refinamientos del menú comparativo. No afecta Inicio. */
-#extraComparePanel .cmp-header{padding-bottom:18px}
-#extraComparePanel .compare-grid.cmp-results{gap:11px}
-#extraComparePanel .compare-card{box-shadow:0 12px 26px #0003, inset 0 1px 0 #ffffff10;transition:box-shadow .2s ease}
-#extraComparePanel .cmp-card-metric{margin:10px 0 12px}
-#extraComparePanel .cmp-card-money{letter-spacing:-.035em}
-#extraComparePanel .compare-pending{position:relative;overflow:hidden;box-shadow:0 14px 28px #0003}
-#extraComparePanel .compare-pending:before{content:'';position:absolute;right:-55px;top:-65px;width:170px;height:170px;background:radial-gradient(circle,#ffad7630,transparent 72%);pointer-events:none}
-#extraComparePanel .compare-pending .cmp-diff-grid{position:relative}
-#extraComparePanel .cmp-entry input:focus-visible,#extraComparePanel button:focus-visible{outline:2px solid var(--cmp-accent,#86bdff);outline-offset:3px}
-body.anime-on #extraComparePanel .cmp-header{min-height:146px;align-items:flex-end}
-body.anime-on #extraComparePanel .cmp-header:before{background-position:center 40%}
-body.anime-on #extraComparePanel .cmp-header-icon{box-shadow:0 7px 24px #0009,0 0 20px var(--cmp-glow)}
-body.anime-on[data-anime="naruto"] #extraComparePanel .cmp-header:after{background:linear-gradient(90deg,#211209f2 0%,#2e160cdb 52%,#26100f44 100%)}
-body.anime-on[data-anime="itachi"] #extraComparePanel .cmp-header:after{background:linear-gradient(90deg,#190c1bf4 0%,#250d1ddb 51%,#150d2244 100%)}
-body.anime-on[data-anime="goku"] #extraComparePanel .cmp-header:after{background:linear-gradient(90deg,#07162af4 0%,#081f3bdb 51%,#0b295044 100%)}
-body.anime-on[data-anime="vegeta"] #extraComparePanel .cmp-header:after{background:linear-gradient(90deg,#120f2af4 0%,#18103ddb 51%,#2d195244 100%)}
-@media(max-width:390px){body.anime-on #extraComparePanel .cmp-header{min-height:132px}}
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><meta name="theme-color" content="#080a19"><title>Saiyan Arena V11 · Guerreros Mejorados</title><style>
+*{box-sizing:border-box;touch-action:none}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#070b1c;color:#fff;font-family:system-ui,-apple-system,Arial,sans-serif}canvas{display:block}button{font-family:inherit}#hud{position:fixed;inset:0;pointer-events:none;z-index:2}#bars{position:absolute;top:max(env(safe-area-inset-top),8px);left:12px;right:12px;display:flex;justify-content:space-between;gap:8px;text-shadow:0 2px 3px #101018}.fighter{width:37%;max-width:370px}.fighter.enemy{text-align:right}.name{font-weight:1000;font-size:clamp(9px,1.7vw,15px);letter-spacing:2px;color:#fff;text-shadow:0 2px 6px #000}.bar{height:13px;margin-top:4px;border-radius:2px;border:1px solid #efeeeed0;background:#140c20;overflow:hidden;transform:skew(-11deg);box-shadow:0 2px 12px #0009}.bar>div{height:100%;width:100%;background:linear-gradient(90deg,#20bd95,#8aff55);transition:width .15s}.enemy .bar>div{background:linear-gradient(90deg,#ffcb3f,#ed4352)}.ki{height:6px;margin-top:4px;border-color:#83cfff}.ki>div{background:linear-gradient(90deg,#1961ff,#64ffff)}#heading{text-align:center;font-style:italic;font-weight:1000;letter-spacing:.1em;color:#ffe58b;font-size:clamp(10px,2.1vw,16px);text-shadow:0 3px 8px #000}#time{font-size:clamp(15px,3.2vw,27px);font-style:normal;color:white}#ann{position:absolute;top:30%;left:10%;width:80%;text-align:center;font-size:clamp(23px,6vw,54px);font-weight:1000;font-style:italic;letter-spacing:3px;color:#fff2a0;text-shadow:4px 4px 0 #a92827,0 0 24px #ffb72a;opacity:0;transform:scale(1.2);transition:opacity .12s,transform .2s}#ann.on{opacity:1;transform:scale(1)}#combo{position:absolute;left:50%;top:21%;transform:translateX(-50%);text-align:center;font-size:clamp(13px,2.2vw,19px);font-weight:1000;color:#ffe899;text-shadow:0 2px 6px #000;opacity:0}#combo.on{opacity:1}#stick{position:fixed;bottom:max(17px,env(safe-area-inset-bottom));left:19px;width:116px;height:116px;border:2px solid #dff4ff44;border-radius:50%;background:radial-gradient(circle,#405d8860,#0d133354);backdrop-filter:blur(4px);z-index:3}#nub{position:absolute;left:38px;top:38px;width:40px;height:40px;border:2px solid #c5f5ff99;border-radius:50%;background:radial-gradient(circle at 25% 25%,#daeeff,#477bae);box-shadow:0 0 17px #58b9ff77}#controls{position:fixed;bottom:max(12px,env(safe-area-inset-bottom));right:16px;z-index:3;display:grid;grid-template-columns:repeat(3,58px);gap:6px}.btn{height:50px;min-width:0;border:1px solid #bedcfb7a;border-radius:11px;background:linear-gradient(150deg,#315b83d9,#0e1637eb);color:#fff;font-size:9px;font-weight:1000;letter-spacing:.2px;text-shadow:0 1px 4px #000;box-shadow:0 3px 8px #0008;user-select:none}.btn:active{filter:brightness(1.6);transform:scale(.95)}#punch{background:linear-gradient(160deg,#ffa348,#ae2a45)}#beam{background:linear-gradient(160deg,#83ffff,#1663d1);color:#071634;text-shadow:none}#ultimate{grid-column:2/4;background:linear-gradient(160deg,#ffe978,#ff7b1b);color:#311213;text-shadow:none}#overlay{position:fixed;inset:0;display:grid;place-items:center;z-index:10;background:radial-gradient(ellipse at 52% 35%,#294a7fcb,#08081df0 65%);padding:18px;text-align:center}#menu{max-width:490px;background:#080b1d9e;border:1px solid #c9e6ff47;border-radius:20px;padding:22px;box-shadow:0 20px 80px #000b}#menu h1{font-size:clamp(39px,8vw,68px);font-style:italic;line-height:.9;letter-spacing:-2px;margin:0;color:#ffe26f;text-shadow:3px 5px 0 #bb3d32,0 0 40px #ec9a3c}#menu p{font-size:13px;font-weight:550;line-height:1.5;color:#d5e6ff}#start{border:0;padding:15px 27px;border-radius:10px;background:linear-gradient(110deg,#ffe37e,#ff762f);font-weight:1000;font-size:14px;color:#21122a}#start:disabled{opacity:.4}#status{font-size:12px;color:#a9f3ff;margin-top:12px;min-height:16px}#orientation{display:none;position:fixed;inset:0;z-index:12;place-items:center;background:#060a1a;color:white;text-align:center;font-size:23px;font-weight:900;padding:35px}@media(orientation:portrait){#orientation{display:grid}}@media(max-height:405px){#controls{grid-template-columns:repeat(3,49px);gap:5px;right:9px}.btn{height:43px;font-size:8px}#stick{width:90px;height:90px;left:12px}#nub{left:28px;top:28px;width:34px;height:34px}#bars{top:4px}.bar{height:9px}}
+#impact{position:fixed;inset:0;pointer-events:none;z-index:2;opacity:0;background:radial-gradient(ellipse,#ffffff60 0%,#fff5b020 40%,transparent 70%);mix-blend-mode:screen}#speedlines{position:fixed;inset:0;z-index:2;pointer-events:none;opacity:0;background:repeating-conic-gradient(from 0deg at 50% 50%,transparent 0deg 8deg,#c7edff1e 9deg 10deg,transparent 12deg 22deg);mask-image:radial-gradient(ellipse,transparent 5%,#000 100%)}#vignette{position:fixed;inset:0;pointer-events:none;z-index:1;background:radial-gradient(ellipse at center,transparent 40%,#10102d55 100%)}#quality{position:absolute;right:14px;top:56px;pointer-events:auto;background:#0c1739af;color:#edf8ff;border:1px solid #ffffff66;border-radius:8px;padding:5px 9px;font-size:11px;font-weight:800}#hint{position:absolute;left:50%;bottom:9px;transform:translateX(-50%);font-size:10px;color:#dfefffba;text-shadow:0 1px 3px #000;white-space:nowrap}@media(max-height:405px){#hint{display:none}}
 
 
-/* ITACHI VISIBLE — applies only while anime Itachi theme is active */
-body.anime-on[data-anime="itachi"]{--accent:#ff414e;--hero1:#7b102b;--hero2:#210c19;--tile:#371522;--panel:#19111d}
-body.anime-on[data-anime="itachi"] .anime-scene{height:235px!important;background-position:75% 54%!important;border:1px solid #ff475d!important;box-shadow:inset 0 0 24px #ff143b55,0 0 28px #c4093355,0 14px 32px #000b!important;}
-body.anime-on[data-anime="itachi"] .anime-scene::after{background:linear-gradient(90deg,#120913b5 0%,#18091552 42%,#0b091412 80%),linear-gradient(0deg,#100a13c9 0%,transparent 44%)!important}
-body.anime-on[data-anime="itachi"] .anime-scene-tag{font-size:20px!important;letter-spacing:.13em!important;text-shadow:0 2px 8px black,0 0 17px #ff182b!important}
-body.anime-on[data-anime="itachi"] .anime-scene-tag::before{content:'◉  SHARINGAN  •  AKATSUKI';display:block;color:#ff8c99;font-size:10px;letter-spacing:.13em;margin-bottom:4px}
-body.anime-on[data-anime="itachi"] #extraComparePanel{--cmp-accent:#ff4c66;box-shadow:0 0 0 1px #e73b5555,0 14px 33px #000a,0 0 28px #ff253722!important}
-body.anime-on[data-anime="itachi"] #extraComparePanel .cmp-header{min-height:218px!important;align-items:flex-end!important;padding:18px 16px 19px!important;border-bottom:1px solid #ff4961!important;}
-body.anime-on[data-anime="itachi"] #extraComparePanel .cmp-header::before{background-position:82% 56%!important;background-size:cover!important;filter:brightness(1.6) contrast(1.13) saturate(1.2)!important}
-body.anime-on[data-anime="itachi"] #extraComparePanel .cmp-header::after{background:linear-gradient(90deg,#100815ee 0%,#17091ab8 47%,#10081512 100%),linear-gradient(0deg,#130714f0 0%,transparent 48%)!important}
-body.anime-on[data-anime="itachi"] #extraComparePanel .cmp-kicker::before{content:'◉ ITACHI UCHIHA  /  ';color:#ff647b;text-shadow:0 0 10px #f93547}
-body.anime-on[data-anime="itachi"] #extraComparePanel .cmp-header h2{text-shadow:0 2px 8px #000,0 0 16px #ff334488}
-body.anime-on[data-anime="itachi"] #extraComparePanel .cmp-header-icon{background:#9b1431;border:1px solid #ff8898;box-shadow:0 0 21px #ff284e88}
-body.anime-on[data-anime="itachi"] #extraComparePanel .cmp-app{background:linear-gradient(145deg,#63192f,#22101f)!important;border-color:#ff536c8a!important}
-body.anime-on[data-anime="itachi"] #extraComparePanel .cmp-paid{background:linear-gradient(145deg,#302333,#131725)!important;border-color:#c09cb488!important}
-body.anime-on[data-anime="itachi"] #extraComparePanel .cmp-progress-fill{background:linear-gradient(90deg,#b71136,#ff5277)!important}
-body.anime-on[data-anime="itachi"] #extraComparePanel .compare-pending{background:linear-gradient(145deg,#680e29,#240f1f)!important;border-color:#ff506f99!important}
-@media(max-width:390px){body.anime-on[data-anime="itachi"] #extraComparePanel .cmp-header{min-height:195px!important}}
-</style><style>.money-toggle{margin:10px 0 4px;padding:9px 15px;border:1px solid var(--accent,#73b4f8);border-radius:12px;background:rgba(20,44,70,.85);color:#f0f6ff;font-weight:700;font-size:13px;cursor:pointer}.money-toggle:focus-visible{outline:3px solid #fff;outline-offset:2px}.nav{--menu-icon-color:#67aeff}.nav button svg{color:var(--menu-icon-color)}.nav button.active svg{filter:drop-shadow(0 0 4px var(--menu-icon-color))}</style><style id="anime-extra-css">
-/* Extra visual aislado: al desactivar se restauran todos los estilos originales */
-.anime-extra-controls{display:grid;gap:12px}.anime-extra-toggle{display:flex;align-items:center;justify-content:space-between;gap:12px}.anime-extra-toggle input{width:23px;height:23px;accent-color:#f59e0b}.anime-extra-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.anime-extra-choices button{padding:12px 8px;border:2px solid #42536c;border-radius:14px;color:#fff;background:#213247;font-weight:750}.anime-extra-choices button[aria-pressed="true"]{border-color:#fff;box-shadow:0 0 0 2px #f59e0b}.anime-extra-choices button small{display:block;font-size:11px;font-weight:400;opacity:.85;margin-top:3px}
-body.anime-on{background-attachment:fixed!important;position:relative}body.anime-on::before{content:attr(data-anime-label);pointer-events:none;position:fixed;right:-6px;top:90px;font-size:clamp(75px,22vw,135px);font-weight:1000;letter-spacing:-8px;writing-mode:vertical-rl;opacity:.12;z-index:0;text-shadow:0 0 35px currentColor}body.anime-on .app{position:relative;z-index:1}body.anime-on .panel,body.anime-on .hero,body.anime-on .nav{backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px)}body.anime-on .panel{background:color-mix(in srgb,var(--panel) 84%,transparent)}body.anime-on .hero{border-color:var(--accent);box-shadow:0 10px 38px #0006,0 0 24px color-mix(in srgb,var(--accent) 22%,transparent)}body.anime-on .nav{background:color-mix(in srgb,var(--panel) 91%,transparent)}body.anime-on .nav button{color:#f4e8d6}body.anime-on .nav button.active{background:color-mix(in srgb,var(--accent) 24%,transparent);color:#fff}body.anime-on .nav button svg{color:var(--accent);filter:drop-shadow(0 0 4px var(--accent))}
-body.anime-on[data-anime="naruto"]{--bg1:#542a0e;--bg2:#180f12;--panel:#2c1d22;--tile:#4c2b22;--hero1:#ab4b13;--hero2:#51231c;--accent:#ffb74d;background:radial-gradient(circle at 80% 18%,#ff98184a,transparent 48%),linear-gradient(155deg,#542a0e,#180f12 65%)}
-body.anime-on[data-anime="itachi"]{--bg1:#2a111a;--bg2:#080b12;--panel:#221720;--tile:#3b202e;--hero1:#661b31;--hero2:#2a1527;--accent:#ff647a;background:radial-gradient(circle at 80% 20%,#d10f354d,transparent 45%),linear-gradient(160deg,#2a111a,#080b12 65%)}
-body.anime-on[data-anime="goku"]{--bg1:#102c59;--bg2:#0c162b;--panel:#142c4c;--tile:#1e4167;--hero1:#174d92;--hero2:#a24c13;--accent:#ffb65a;background:radial-gradient(circle at 80% 17%,#4db9ff55,transparent 44%),linear-gradient(155deg,#102c59,#0c162b 70%)}
-body.anime-on[data-anime="vegeta"]{--bg1:#1a1a54;--bg2:#0b1023;--panel:#1b2048;--tile:#2c3366;--hero1:#3636a0;--hero2:#25245a;--accent:#b4a0ff;background:radial-gradient(circle at 80% 17%,#9657ff5c,transparent 44%),linear-gradient(155deg,#1a1a54,#0b1023 70%)}
+/* V10 PRO TOUCH CONTROLLER */
+:root{--hud-safe:env(safe-area-inset-bottom,0px)}
+#hint{display:none!important}
+#stick{left:max(20px,env(safe-area-inset-left,0px) + 10px);bottom:calc(18px + var(--hud-safe));width:136px;height:136px;border:2px solid rgba(175,221,255,.45);background:radial-gradient(circle at center,rgba(92,144,189,.22),rgba(8,19,40,.40) 63%,rgba(5,14,33,.68));box-shadow:inset 0 0 0 18px rgba(95,171,255,.035),0 10px 35px #0008,0 0 24px #4c9dff27;touch-action:none;user-select:none;-webkit-user-select:none;z-index:6}
+#stick::before{content:'MOVER';position:absolute;top:-22px;left:50%;transform:translateX(-50%);font-size:9px;font-weight:900;letter-spacing:2px;color:#d5e9ffb5;text-shadow:0 1px 4px #000}
+#stick::after{content:'';position:absolute;inset:28%;border-radius:50%;border:1px dashed #caeaff39;pointer-events:none}
+#nub{left:42px;top:42px;width:44px;height:44px;border:2px solid #dcf6ffbd;background:radial-gradient(circle at 32% 22%,#f4fcff,#73b4ee 42%,#1b4f8c);box-shadow:0 3px 16px #0007,0 0 15px #68bfff77;pointer-events:none;transition:box-shadow .12s}
+#stick.active #nub{box-shadow:0 3px 12px #0009,0 0 24px #77cdffff}
+#controls{bottom:calc(12px + var(--hud-safe));right:max(14px,env(safe-area-inset-right,0px) + 10px);display:block;width:286px;height:182px;z-index:6;pointer-events:none}
+#controls .btn{position:absolute;min-width:0;height:auto;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:3px;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent;pointer-events:auto;border:1px solid #fff7;border-radius:999px;background:linear-gradient(145deg,#324d75f2,#101f44f2);box-shadow:inset 0 2px 7px #fff2,inset 0 -9px 16px #02081755,0 6px 14px #000a,0 0 14px #1f73ea22;color:#f5faff;font-size:9px;letter-spacing:.55px;line-height:1.12;text-shadow:0 1px 3px #000e;transition:transform .08s,filter .08s;white-space:nowrap;padding:0}
+#controls .btn .symbol{font-size:21px;line-height:1;display:block;font-weight:950}
+#controls .btn .caption{font-size:8px;line-height:1.05;letter-spacing:.6px;font-weight:1000}
+#controls .btn.pressed{transform:scale(.90);filter:brightness(1.28);box-shadow:inset 0 3px 12px #0006,0 0 18px #9bcfff77}
+#punch{width:84px;height:84px!important;right:6px;bottom:32px;background:linear-gradient(145deg,#ffaf56,#d74028 53%,#891a28)!important;border:2px solid #ffdaa5!important}
+#punch .symbol{font-size:26px!important}
+#beam{width:68px;height:68px!important;right:102px;bottom:14px;background:linear-gradient(145deg,#8ffbff,#267be3 54%,#12329e)!important;color:#fff!important;text-shadow:0 1px 4px #03152a!important}
+#dodge{width:60px;height:60px!important;right:108px;bottom:106px;background:linear-gradient(145deg,#d7baff,#6544c2 58%,#312475)!important}
+#ultimate{grid-column:auto!important;width:63px;height:63px!important;right:16px;bottom:126px;background:linear-gradient(145deg,#fff7b6,#fcb42b 55%,#d45b1a)!important;color:#351709!important;text-shadow:none!important}
+#charge{width:58px;height:58px!important;right:188px;bottom:30px;background:linear-gradient(145deg,#80efc1,#178e97 55%,#0c5063)!important}
+#up,#down{width:50px;height:50px!important;right:194px;background:linear-gradient(145deg,#567fbd,#213a6b)!important}
+#up{bottom:118px}#down{bottom:79px;right:242px}
+#up .symbol,#down .symbol{font-size:17px!important}
+#controls .btn:disabled{opacity:.46;filter:grayscale(.5)}
+#controls .btn:focus-visible{outline:2px solid #fff;outline-offset:3px}
+#quality{top:52px;right:14px;border-radius:12px;padding:6px 11px;font-size:10px;background:#0d1939d6}
+@media(max-height:440px){#stick{width:105px;height:105px;bottom:calc(9px + var(--hud-safe));left:16px}#nub{left:33px;top:33px;width:35px;height:35px}#controls{transform:scale(.78);transform-origin:bottom right;bottom:calc(8px + var(--hud-safe));right:12px}#bars{top:max(3px,env(safe-area-inset-top))}#stick::before{top:-15px;font-size:7px}}
+@media(max-width:700px) and (orientation:landscape){#controls{transform:scale(.82);transform-origin:bottom right;right:9px;bottom:calc(6px + var(--hud-safe))}#stick{width:105px;height:105px;bottom:calc(9px + var(--hud-safe))}#nub{left:33px;top:33px;width:35px;height:35px}}
 
-/* Escenas anime opcionales: el modo original no cambia */
-.anime-scene{display:none}
-body.anime-on .anime-scene{display:block;height:190px;border-radius:22px;margin:-4px 0 14px;position:relative;overflow:hidden;background-position:center 42%;background-size:cover;border:1px solid var(--accent);box-shadow:0 12px 28px #0008}
-body.anime-on .anime-scene::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--bg2) 0%,transparent 55%),linear-gradient(90deg,#0008,transparent 65%)}
-body.anime-on .anime-scene-tag{position:absolute;bottom:12px;left:14px;z-index:1;color:white;font-weight:900;letter-spacing:.12em;font-size:16px;text-shadow:0 2px 12px #000}
-body.anime-on[data-anime="naruto"] .anime-scene{background-image:url('./fondo-naruto.jpg')}
-body.anime-on[data-anime="itachi"] .anime-scene{background-image:url('./fondo-itachi.jpg?v=itachi-visible-2')}
-body.anime-on[data-anime="goku"] .anime-scene{background-image:url('./fondo-goku.jpg')}
-body.anime-on[data-anime="vegeta"] .anime-scene{background-image:url('./fondo-vegeta.jpg')}
-body.anime-on .nav svg{width:25px;height:25px;stroke-width:2.1}
-body.anime-on .nav{border-top:2px solid var(--accent);box-shadow:0 -4px 25px #0008}
-@media(min-width:560px){body.anime-on .anime-scene{height:230px}}
 
-/* Comparacion de horas extras: independiente del Inicio */
-.compare-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:12px 0}
-.compare-card{border:1px solid rgba(145,177,226,.25);border-radius:14px;padding:13px;background:rgba(90,122,168,.1);min-width:0}
-.compare-card strong{display:block;font-size:21px;overflow-wrap:anywhere;margin:5px 0}
-.compare-card small{display:block;color:var(--muted,#a4b4cb);font-size:11px}
-.compare-inputs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-.compare-inputs label{font-size:12px;min-width:0;display:block}
-.compare-inputs .field{width:100%;margin-top:5px;min-width:0;padding:9px 7px}
-.compare-pending{border:1px solid rgba(245,130,101,.35);border-radius:14px;padding:14px;background:rgba(240,91,65,.08);margin-top:12px}
-.compare-note{font-size:12px;opacity:.8;line-height:1.4}
-@media(max-width:400px){.compare-card strong{font-size:17px}.compare-inputs{gap:5px}}
-
-/* MIS HORAS - comparador premium (solo Historial) */
-.cmp-header{display:flex;align-items:center;gap:13px;margin:0 0 14px}.cmp-header-icon{display:grid;place-items:center;flex:none;width:45px;height:45px;border-radius:16px;background:linear-gradient(140deg,#3b84e5,#1e4269);border:1px solid #ffffff35;font-size:26px;color:white;box-shadow:0 8px 19px #0c264a55}.cmp-header h2{font-size:19px;line-height:1.2;margin:3px 0 4px}.cmp-header p{margin:0;color:#b4c1d5;font-size:11px;line-height:1.45}.cmp-kicker{font-size:10px;letter-spacing:.15em;font-weight:900;color:#94c6ff}.cmp-lock{background:linear-gradient(135deg,#1d344f,#12273e);border:1px solid #8fbaff45;border-radius:18px;padding:15px;display:grid;grid-template-columns:36px 1fr;gap:9px 12px;align-items:center}.cmp-lock-icon{font-size:25px;color:#8acbff}.cmp-lock strong,.cmp-lock span{display:block}.cmp-lock strong{font-size:14px}.cmp-lock span{font-size:11px;color:#b6c7d9;margin-top:3px}.cmp-unlock{grid-column:1/-1;width:100%;margin-top:5px;border-radius:12px!important;min-height:44px}.compare-grid.cmp-results{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:8px 0 14px}.compare-card{border:1px solid #ffffff26;border-radius:18px;padding:14px 12px;min-width:0;box-shadow:0 8px 22px #050e1e2d}.compare-card.cmp-app{background:linear-gradient(160deg,#224a78,#142b49);border-color:#88baff44}.compare-card.cmp-paid{background:linear-gradient(160deg,#20564e,#13372f);border-color:#9bf1c54a}.cmp-card-heading{font-size:10px;letter-spacing:.045em;font-weight:900;min-height:26px;line-height:1.3;display:flex;align-items:center;gap:7px;color:#e8f2ff}.cmp-card-dot{display:inline-block;width:7px;height:7px;border-radius:99px;background:#8ac4ff;flex:none}.cmp-paid .cmp-card-dot{background:#71e9b5}.cmp-card-metric{font-size:clamp(18px,5vw,25px);font-weight:900;line-height:1.15;margin:14px 0 14px;overflow-wrap:anywhere;letter-spacing:-.035em;font-variant-numeric:tabular-nums}.cmp-card-label{font-size:10px;color:#c2d3e4;margin:0 0 5px}.cmp-card-money{font-size:clamp(17px,4.5vw,24px);font-weight:800;letter-spacing:-.025em;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}.cmp-progress-block{padding:13px;border:1px solid #ffffff26;border-radius:15px;background:#071c306b;margin:0 0 17px}.cmp-progress-head{display:flex;gap:12px;justify-content:space-between;align-items:center;font-size:11px;color:#d3e1f5}.cmp-progress-head strong{color:#a6eac9;font-size:14px}.cmp-track{height:10px;border-radius:999px;background:#245075;margin:10px 0 7px;overflow:hidden;box-shadow:inset 0 1px 4px #0008}.cmp-progress-fill{height:100%;width:0;background:linear-gradient(90deg,#55cda8,#a1f2b2);border-radius:inherit;transition:width .3s ease}.cmp-legend{display:flex;gap:14px;font-size:10px;color:#aebdd0}.cmp-legend span{display:flex;align-items:center;gap:5px}.cmp-legend i{display:inline-block;width:8px;height:8px;border-radius:50%}.cmp-key-blue{background:#4e9def}.cmp-key-green{background:#77e9aa}.cmp-entry{background:#0d2035b0;border:1px solid #ffffff24;border-radius:18px;padding:15px 12px;margin-bottom:17px}.cmp-section-title{display:flex;align-items:center;gap:10px;margin:0 0 13px}.cmp-step{font-size:11px;letter-spacing:.02em;font-weight:900;flex:none;width:31px;height:31px;border-radius:10px;display:grid;place-items:center;color:#a6d5ff;background:#143e67;border:1px solid #65baff42}.cmp-section-title strong{font-size:14px;display:block}.cmp-section-title small{display:block;font-size:11px;color:#a2b6d0;margin-top:2px}.compare-inputs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.compare-inputs label{min-width:0;font-size:11px;color:#d2e5fa;font-weight:750}.cmp-input-shell{display:flex;align-items:center;gap:4px;border:1px solid #6181a57a;background:#0b1830;border-radius:11px;padding-right:9px;margin-top:7px}.compare-inputs .field{min-width:0;width:100%;height:41px;background:transparent!important;border:0!important;box-shadow:none!important;text-align:center;padding:6px 0 6px 6px!important;color:#fff;font-size:16px;font-weight:750;font-variant-numeric:tabular-nums}.cmp-input-shell em{font-size:11px;color:#91bde5;font-style:normal}.cmp-amount-field{margin:14px 0 0}.cmp-amount-field label{display:block;font-size:12px;font-weight:800;margin-bottom:7px}.cmp-money-input{display:flex;align-items:center;background:#0b1830;border:1px solid #6181a57a;border-radius:12px;padding:0 14px;gap:8px}.cmp-money-input span{font-size:21px;color:#85dbb6;font-weight:850}.cmp-money-input .field{min-width:0;height:46px;background:transparent!important;border:0!important;box-shadow:none!important;font-size:20px;font-weight:800;padding-left:0!important;color:#fff;font-variant-numeric:tabular-nums}.cmp-amount-field>small{display:block;color:#96aac2;font-size:10px;margin-top:7px;line-height:1.4}.cmp-result-title{margin-top:3px}.compare-pending{border:1px solid #ffa7765c;border-radius:18px;padding:16px 14px;background:linear-gradient(145deg,#592e30,#342536 90%);box-shadow:0 10px 27px #1f121b40;margin:0}.cmp-pending-caption{font-size:10px;font-weight:900;letter-spacing:.15em;color:#ffd1a5}.cmp-diff-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0 10px}.cmp-diff-grid>div+div{border-left:1px solid #ffffff30;padding-left:13px}.cmp-diff-grid small{font-size:11px;color:#f3c8c9;display:block;line-height:1.35}.cmp-diff-grid strong{display:block;font-size:clamp(18px,4.9vw,25px);letter-spacing:-.04em;margin-top:7px;font-weight:900;overflow-wrap:anywhere;font-variant-numeric:tabular-nums;color:#fff}.compare-note{font-size:11px;line-height:1.5;color:#f8d3cf;margin:10px 0 0}.cmp-rate-details{margin:13px 0;background:#0c2038b8;border:1px solid #ffffff2a;border-radius:13px;padding:10px 12px}.cmp-rate-details summary{cursor:pointer;list-style:none;font-size:12px;font-weight:760;display:flex;justify-content:space-between}.cmp-rate-details summary::-webkit-details-marker{display:none}.cmp-rate-details[open] summary span{transform:rotate(180deg)}.cmp-rates{margin:10px 0 0;color:#c1d5e8;font-size:11px;line-height:1.7;overflow-wrap:anywhere}.cmp-footer{display:flex;justify-content:space-between;align-items:center;gap:10px}.cmp-footer span{font-size:11px;color:#97d9c1;line-height:1.35}.cmp-footer button{white-space:nowrap;border-radius:11px}.cmp-disclaimer{margin:14px 0 0;font-size:10px;line-height:1.5;color:#9aadc5}@media(max-width:360px){.cmp-card-heading{font-size:9px}.compare-card{padding:12px 9px}.cmp-card-metric{font-size:18px}.cmp-card-money{font-size:17px}.cmp-diff-grid strong{font-size:18px}}@media(prefers-reduced-motion:reduce){.cmp-progress-fill{transition:none}}
-
-/* Comparador coordinado con el Modo Anime existente. Solo cambia su aspecto cuando está activo. */
-body.anime-on #extraComparePanel{
- --cmp-accent:var(--accent,#7bbcff);
- --cmp-glow:color-mix(in srgb,var(--cmp-accent) 28%,transparent);
- position:relative;isolation:isolate;overflow:hidden;
- border:1px solid color-mix(in srgb,var(--cmp-accent) 50%,transparent);
- box-shadow:0 12px 36px #0005,0 0 23px var(--cmp-glow);
- background:linear-gradient(158deg,color-mix(in srgb,var(--panel) 91%,#060d21),color-mix(in srgb,var(--cmp-accent) 13%,#0c1525));
+/* V19 tercera persona: cluster táctil a la derecha */
+#controls{width:344px;height:204px;right:max(10px,env(safe-area-inset-right,0px) + 7px);bottom:calc(8px + var(--hud-safe))}
+#punch{right:0;bottom:23px}
+#beam{right:99px;bottom:10px}
+#dodge{right:105px;bottom:121px}
+#ultimate{right:9px;bottom:130px}
+#kick{width:66px;height:66px!important;right:182px;bottom:97px;background:linear-gradient(145deg,#ffdd85,#d87620 55%,#803228)!important;border:2px solid #ffe0a0!important}
+#charge{right:181px;bottom:16px}
+#up{right:260px;bottom:135px}
+#down{right:265px;bottom:72px}
+@media(max-height:440px){#controls{transform:scale(.76);transform-origin:bottom right;bottom:calc(4px + var(--hud-safe))}}
+@media(max-width:700px) and (orientation:landscape){#controls{transform:scale(.72);transform-origin:bottom right}}
+</style><script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.module.js"}}</script></head><body>
+<div id="orientation">↻<br>Gira tu iPhone a horizontal para combatir</div>
+<div id="overlay"><div id="menu"><h1>SAIYAN<br>ARENA</h1><p><b>V18 · PEINADOS REDISEÑADOS</b><br>Aura de KI por personaje y superataque tipo kamehameha con haz de energía.</p><button id="start" disabled>CARGANDO MOTOR…</button><div id="status">Preparando combate 3D...</div><p style="font-size:11px;color:#aab6ce">Prototipo 3D con modelos estilizados generados por código; aún no utiliza personajes profesionales animados.</p></div></div>
+<div id="vignette"></div><div id="speedlines"></div><div id="impact"></div><div id="hud"><button id="quality">EFECTOS: ALTO</button><div id="hint">COMBO · RÁFAGA · SUPER ATAQUE</div><div id="bars"><div class="fighter"><div class="name">RYU · GUERRERO SOLAR</div><div class="bar"><div id="hp"></div></div><div class="bar ki"><div id="ki"></div></div></div><div id="heading">SAIYAN ARENA<div id="time">99</div></div><div class="fighter enemy"><div class="name">KAIDO · SOMBRA</div><div class="bar"><div id="ehp"></div></div></div></div><div id="ann"></div><div id="combo"></div></div>
+<div id="stick" role="group" aria-label="Joystick de movimiento"><div id="nub"></div></div><div id="controls" role="group" aria-label="Controles de combate"><button type="button" class="btn" id="up" aria-label="Ascender"><span class="symbol">▲</span><span class="caption">SUBIR</span></button><button type="button" class="btn" id="charge" aria-label="Mantener para cargar ki"><span class="symbol">✦</span><span class="caption">KI</span></button><button type="button" class="btn" id="down" aria-label="Descender"><span class="symbol">▼</span><span class="caption">BAJAR</span></button><button type="button" class="btn" id="dodge" aria-label="Esquivar"><span class="symbol">↝</span><span class="caption">DASH</span></button><button type="button" class="btn" id="punch" aria-label="Golpe y combo"><span class="symbol">✊</span><span class="caption">GOLPE</span></button><button type="button" class="btn" id="kick" aria-label="Patada"><span class="symbol">🦵</span><span class="caption">PATADA</span></button><button type="button" class="btn" id="beam" aria-label="Ráfaga de ki"><span class="symbol">✧</span><span class="caption">RÁFAGA</span></button><button type="button" class="btn" id="ultimate" aria-label="Super ataque"><span class="symbol">⚡</span><span class="caption">SUPER</span></button></div>
+<div id="warrior-status" style="position:fixed;top:56px;left:50%;transform:translateX(-50%);z-index:3;pointer-events:none;background:#10142daa;color:#c9f6ff;padding:5px 9px;border-radius:8px;text-align:center;font:700 10px system-ui;max-width:80vw">CARGANDO ANIME WARRIOR…</div><script type="module">
+import * as THREE from 'three';
+import {GLTFLoader} from 'https://cdn.jsdelivr.net/npm/three@0.160.1/examples/jsm/loaders/GLTFLoader.js';
+import {FBXLoader} from 'https://cdn.jsdelivr.net/npm/three@0.160.1/examples/jsm/loaders/FBXLoader.js';
+import {clone as cloneSkeleton} from 'https://cdn.jsdelivr.net/npm/three@0.160.1/examples/jsm/utils/SkeletonUtils.js';
+const $=id=>document.getElementById(id), V=(x=0,y=0,z=0)=>new THREE.Vector3(x,y,z), rand=(a,b)=>a+Math.random()*(b-a), clamp=THREE.MathUtils.clamp;
+let renderer;try{renderer=new THREE.WebGLRenderer({antialias:true,alpha:false,powerPreference:'high-performance'});}catch(e){$('status').textContent='Este dispositivo no pudo iniciar WebGL: '+e.message;throw e}renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.6));renderer.setSize(innerWidth,innerHeight);renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.17;document.body.prepend(renderer.domElement);
+const scene=new THREE.Scene();scene.background=new THREE.Color('#78add9');scene.fog=new THREE.Fog('#b2c4d0',65,240);const camera=new THREE.PerspectiveCamera(49,innerWidth/innerHeight,.15,320);
+scene.add(new THREE.HemisphereLight(0xe9f5ff,0x92735c,2.5));let sunlight=new THREE.DirectionalLight(0xffe5c0,3.1);sunlight.position.set(-35,60,40);scene.add(sunlight);let rim=new THREE.DirectionalLight(0x4b9fff,2.2);rim.position.set(20,13,-25);scene.add(rim);
+const gradient=new THREE.DataTexture(new Uint8Array([57,106,161,212,255].flatMap(n=>[n,n,n,255])),5,1,THREE.RGBAFormat);gradient.needsUpdate=true;gradient.magFilter=THREE.NearestFilter;gradient.minFilter=THREE.NearestFilter;const material=(c,rough=.82,emissive=0)=>new THREE.MeshToonMaterial({color:c,gradientMap:gradient,emissive:emissive||0x000000,emissiveIntensity:.12});const ink=new THREE.MeshBasicMaterial({color:0x121424});const make=(parent,g,m,x=0,y=0,z=0)=>{let o=new THREE.Mesh(g,m);o.position.set(x,y,z);parent.add(o);return o};
+const sphere=(r=1,w=14,h=10)=>new THREE.SphereGeometry(r,w,h),box=(x=1,y=1,z=1)=>new THREE.BoxGeometry(x,y,z),cone=(r=.5,h=1,n=7)=>new THREE.ConeGeometry(r,h,n),cylinder=(r1=.5,r2=.5,h=1,n=10)=>new THREE.CylinderGeometry(r1,r2,h,n);
+// Landscape: eroded canyon plateaus, far mesas, floating fragments and atmospheric haze.
+let ground=make(scene,new THREE.PlaneGeometry(500,500),material(0x99795a));ground.rotation.x=-Math.PI/2;ground.position.y=-4.4;
+const stone=[material(0x8f6755),material(0xa77555),material(0xc59a70),material(0x665c61)];for(let i=0;i<49;i++){const t=i*2.39996,d=27+(i%17)*6.4,x=Math.cos(t)*d,z=Math.sin(t)*d,ht=rand(4,17);let mesa=new THREE.Group();mesa.position.set(x,-4.4,z);scene.add(mesa);let geo=cylinder(rand(2,5),rand(4,7),ht,6);let rock=make(mesa,geo,stone[i%4],0,ht/2,0);rock.rotation.y=t;make(mesa,cylinder(rand(2,5),rand(3,6),.9,6),stone[(i+2)%4],0,ht-.1,0);if(i%4===0){let slab=make(mesa,box(rand(3,7),.4,rand(2,7)),stone[2],0,ht+.3,0);slab.rotation.z=rand(-.3,.3)}}
+for(let i=0;i<36;i++){let a=i*2.39996,r=20+(i%12)*5,f=make(scene,new THREE.DodecahedronGeometry(rand(.35,1.2),0),stone[i%4],Math.cos(a)*r,rand(3,20),Math.sin(a)*r);f.rotation.set(rand(0,6),rand(0,6),rand(0,6));}
+// Stylized sun halo and atmospheric background, kept as simple meshes for mobile GPUs.
+const sunDisc=new THREE.Mesh(new THREE.SphereGeometry(15,24,12),new THREE.MeshBasicMaterial({color:0xffebac,fog:false}));sunDisc.position.set(-100,78,-165);scene.add(sunDisc);for(let i=0;i<24;i++){const cloud=make(scene,sphere(1,10,7),new THREE.MeshBasicMaterial({color:i%2?0xe5e5d7:0xf7e8d2,transparent:true,opacity:.25,depthWrite:false}),rand(-130,130),rand(20,42),rand(-150,-65));cloud.scale.set(rand(7,18),rand(.9,2.6),rand(3,8));}
+const arena=make(scene,cylinder(22,26,3.2,12),material(0x6e6261),0,-5.9,0),top=make(scene,cylinder(22,22,.35,12),material(0xc7a785),0,-4.13,0);const stripes=new THREE.Group();scene.add(stripes);for(let i=0;i<10;i++){let m=make(stripes,box(.08,.03,43),material(0x675e5d),0,-3.92,0);m.rotation.y=i*Math.PI/10}
+// Anime-inspired 3D character with independently articulated limbs and textured-looking clothing details.
+function fighter(scheme){const root=new THREE.Group(),body=new THREE.Group();root.add(body);const skin=material(scheme.skin),hair=material(scheme.hair,.7),suit=material(scheme.suit),accent=material(scheme.accent),dark=material(scheme.dark),white=material(0xf9f7ed),eyes=material(0x1b1c27),shoe=material(scheme.shoe),auraColor=scheme.aura||scheme.energy,shine=new THREE.MeshBasicMaterial({color:auraColor,transparent:true,opacity:.5,depthWrite:false,blending:THREE.AdditiveBlending});
+let torso=make(body,sphere(1,18,12),suit,0,2.42,0);torso.scale.set(.72,.91,.43);let chest=make(body,sphere(1,16,10),suit,0,2.78,-.06);chest.scale.set(.89,.43,.50);let waist=make(body,cylinder(.44,.56,.56,12),dark,0,1.62,0);let belt=make(body,cylinder(.59,.59,.13,12),accent,0,1.87,0);
+for(let s of [-1,1]){let fold=make(body,box(.095,.75,.09),dark,s*.38,2.35,-.42);fold.rotation.z=s*.19;let stripe=make(body,box(.11,.42,.06),accent,s*.32,2.60,-.493);stripe.rotation.z=s*.2}
+let neck=make(body,cylinder(.23,.27,.42,12),skin,0,3.47,0);let head=new THREE.Group();head.position.set(0,3.85,0);body.add(head);let face=make(head,sphere(.63,18,16),skin,0,0,0);face.scale.set(.85,1.08,.82);let jaw=make(head,cone(.44,.42,4),skin,0,-.43,-.07);jaw.rotation.y=Math.PI/4;jaw.rotation.z=Math.PI; // anime pointed chin
+let browband=make(head,sphere(.62,16,8),hair,0,.44,.025);browband.scale.set(.87,.40,.83);
+for(let s of [-1,1]){let ear=make(head,sphere(.14,10,8),skin,s*.53,-.08,0);ear.scale.set(.6,1.25,.8);let eye=make(head,sphere(.135,10,8),white,s*.238,.01,-.50);eye.scale.set(1.48,.49,.32);let pupil=make(head,sphere(.062,8,6),eyes,s*.22,.01,-.55);pupil.scale.set(.65,.9,.45);let brow=make(head,box(.30,.055,.055),hair,s*.235,.125,-.52);brow.rotation.z=-s*.18}
+make(head,box(.16,.035,.05),dark,0,-.32,-.515);
+ // V18: Shaped layered anime haircut. Wide tapered polygonal locks instead of identical cones.
+ const hairRoot=new THREE.Group();head.add(hairRoot);
+ function lockAt(origin,tip,width,depth,mat=hair){
+   // Six-sided extruded taper with split silhouette and strong angular highlights.
+   const verts=[],indices=[];const ox=origin[0],oy=origin[1],oz=origin[2];
+   const tx=tip[0],ty=tip[1],tz=tip[2];
+   const segments=5;
+   for(let k=0;k<=segments;k++){
+     const t=k/segments,blend=t*t*(3-2*t),w=width*(1-t)*(.97+.18*Math.sin(Math.PI*t));
+     const x=ox+(tx-ox)*blend+Math.sin(t*Math.PI)*.055*Math.sign(tx-ox||1);
+     const y=oy+(ty-oy)*blend;
+     const z=oz+(tz-oz)*blend;
+     verts.push(x-w,y,z-depth*.5*(1-t), x+w,y,z-depth*.5*(1-t), x+w*.74,y,z+depth*.45*(1-t), x-w*.74,y,z+depth*.45*(1-t));
+     if(k){const prev=(k-1)*4,cur=k*4;for(let j=0;j<4;j++){const q=(j+1)%4;indices.push(prev+j,prev+q,cur+j,prev+q,cur+q,cur+j)}}
+   }
+   indices.push(0,1,2,0,2,3);
+   const geo=new THREE.BufferGeometry();geo.setAttribute('position',new THREE.Float32BufferAttribute(verts,3));geo.setIndex(indices);geo.computeVertexNormals();
+   return make(hairRoot,geo,mat);
+ }
+ // Scalp mass with sharp planes, covered by staggered tapered locks.
+ const scalp=make(hairRoot,sphere(.58,16,12),hair,0,.45,.02);scalp.scale.set(.92,.52,.92);
+ if(scheme.suit===0xdb6c24){
+   // Hero: black, layered swept-back silhouette and separated forehead fringe.
+   const back=[[-.37,.38,.22,-.97,1.19,.70],[-.15,.55,.28,-.51,1.37,.72],[.12,.57,.28,.15,1.46,.68],[.34,.49,.20,.79,1.19,.62],[-.46,.36,0,-1.01,.96,.18],[.43,.35,0,1.05,.95,.1],[-.2,.63,-.12,-.72,1.20,.15],[.15,.65,-.10,.58,1.25,.1]];
+   for(const v of back)lockAt(v.slice(0,3),v.slice(3),.22,.26);
+   for(let j=0;j<6;j++){const x=-.47+j*.18;lockAt([x,.49,-.41],[x+(j%2?-.13:.1),-.13+(j%3)*.11,-.64],.125,.15)}
+ }else{
+   // Rival: silver higher crest, asymmetrical long swept-forward fringe.
+   const crest=[[-.43,.43,.10,-.71,1.18,.19],[-.31,.60,.08,-.51,1.48,.08],[-.09,.63,.05,-.11,1.66,-.1],[.14,.60,.06,.32,1.53,-.02],[.36,.50,.1,.80,1.36,.11],[.51,.39,.1,1.03,1.02,.1],[-.4,.31,.3,-.73,.94,.61],[.22,.40,.3,.48,1.24,.6]];
+   for(const v of crest)lockAt(v.slice(0,3),v.slice(3),.21,.28);
+   for(let j=0;j<5;j++){const x=-.37+j*.21;lockAt([x,.55,-.36],[x-.12,-.26+Math.abs(j-2)*.09,-.62],.16,.15)}
+ }
+function arm(side){let shoulder=new THREE.Group();shoulder.position.set(side*.82,2.93,0);body.add(shoulder);let sleeve=make(shoulder,sphere(.38),suit,side*.08,-.13,0);sleeve.scale.set(1,.92,1.05);let upper=make(shoulder,cylinder(.22,.26,.8),skin,side*.12,-.57,0);upper.rotation.z=side*.13;let elbow=new THREE.Group();elbow.position.set(side*.18,-.95,0);shoulder.add(elbow);make(elbow,cylinder(.19,.22,.67),skin,0,-.37,0);make(elbow,cylinder(.23,.23,.23),accent,0,-.65,0);let fist=make(elbow,sphere(.29,12,10),skin,0,-.82,-.05);fist.scale.set(.91,.87,.82);return {shoulder,elbow}}
+function leg(side){let hip=new THREE.Group();hip.position.set(side*.34,1.49,0);body.add(hip);make(hip,cylinder(.31,.35,.88),suit,0,-.48,0);let knee=new THREE.Group();knee.position.set(0,-.95,0);hip.add(knee);make(knee,cylinder(.21,.27,.89),suit,0,-.44,0);make(knee,cylinder(.24,.24,.41),shoe,0,-.83,0);let foot=make(knee,box(.46,.25,.73),shoe,0,-1.08,-.18);foot.rotation.x=-.13;return {hip,knee}}
+// V11 fighter art pass: layered facial features, sculpted silhouettes, costume-specific pieces.
+const isHero=scheme.suit===0xdb6c24;
+const fabricLight=material(isHero?0xf19b46:0x8864be),fabricShadow=material(isHero?0x944019:0x30214c),metal=material(isHero?0xecc685:0xb6c3d5),inner=material(isHero?0x142b5f:0x1b263b),iris=material(isHero?0x1677c9:0xce7899);
+// Eye outlines, angular upper eyelids, nose ridge and cheeks; all fixed to animated head.
+for(let side of [-1,1]){
+ const lid=make(head,box(.34,.042,.06),hair,side*.238,.093,-.575);lid.rotation.z=side*.16;
+ const eyeIris=make(head,sphere(.07,10,8),iris,side*.235,.008,-.594);eyeIris.scale.set(.76,.92,.37);
+ const noseWing=make(head,sphere(.055,9,7),skin,side*.047,-.175,-.55);noseWing.scale.set(.55,.45,.4);
+ const cheek=make(head,sphere(.13,10,8),skin,side*.4,-.22,-.36);cheek.scale.set(1.02,.34,.3);
+ const temple=make(head,cone(.18,.48,5),hair,side*.56,.40,-.075);temple.rotation.z=-side*.40;
 }
-body.anime-on #extraComparePanel .cmp-header{
- position:relative;min-height:124px;margin:-17px -17px 18px;padding:22px 16px 17px;
- border-bottom:1px solid color-mix(in srgb,var(--cmp-accent) 55%,transparent);
- border-radius:17px 17px 0 0;isolation:isolate;overflow:hidden;
-}
-body.anime-on #extraComparePanel .cmp-header:before{
- content:'';position:absolute;inset:0;z-index:-2;
- background-image:var(--cmp-art);background-position:center 43%;background-size:cover;
- filter:saturate(1.09) contrast(1.06);
-}
-body.anime-on #extraComparePanel .cmp-header:after{
- content:'';position:absolute;inset:0;z-index:-1;
- background:linear-gradient(90deg,#061025f4 0%,#08192fdd 47%,#08142951 100%);
-}
-body.anime-on #extraComparePanel .cmp-header h2{font-weight:850;color:white;text-shadow:0 2px 7px #000}
-body.anime-on #extraComparePanel .cmp-header p{color:#e9f3ff;text-shadow:0 2px 6px #000}
-body.anime-on #extraComparePanel .cmp-kicker{color:var(--cmp-accent);text-shadow:0 1px 5px #000}
-body.anime-on #extraComparePanel .cmp-header-icon{background:color-mix(in srgb,var(--cmp-accent) 38%,#11172c);border-color:var(--cmp-accent)}
-body.anime-on #extraComparePanel .cmp-lock,
-body.anime-on #extraComparePanel .cmp-entry,
-body.anime-on #extraComparePanel .cmp-progress-block,
-body.anime-on #extraComparePanel .cmp-rate-details{
- border-color:color-mix(in srgb,var(--cmp-accent) 35%,transparent);
- background:linear-gradient(150deg,color-mix(in srgb,var(--cmp-accent) 10%,#13243b),#0a1a2d);
-}
-body.anime-on #extraComparePanel .cmp-app{
- border-color:color-mix(in srgb,var(--cmp-accent) 50%,transparent);
- background:linear-gradient(160deg,color-mix(in srgb,var(--cmp-accent) 34%,#152945),#10203a);
-}
-body.anime-on #extraComparePanel .cmp-card-dot,
-body.anime-on #extraComparePanel .cmp-key-blue{background:var(--cmp-accent)}
-body.anime-on #extraComparePanel .cmp-step{color:#fff;border-color:var(--cmp-accent);background:color-mix(in srgb,var(--cmp-accent) 35%,#0c2138)}
-body.anime-on #extraComparePanel .cmp-track{background:color-mix(in srgb,var(--cmp-accent) 19%,#0d253f)}
-body.anime-on #extraComparePanel .cmp-progress-fill{background:linear-gradient(90deg,var(--cmp-accent),#7ceec5)}
-body.anime-on #extraComparePanel .cmp-input-shell:focus-within,
-body.anime-on #extraComparePanel .cmp-money-input:focus-within{outline:2px solid var(--cmp-accent);outline-offset:2px}
-body.anime-on[data-anime="naruto"] #extraComparePanel{--cmp-accent:#ffac48;--cmp-art:url('./fondo-naruto.jpg')}
-body.anime-on[data-anime="itachi"] #extraComparePanel{--cmp-accent:#f67c86;--cmp-art:url('./fondo-itachi.jpg?v=itachi-visible-2')}
-body.anime-on[data-anime="goku"] #extraComparePanel{--cmp-accent:#74c8ff;--cmp-art:url('./fondo-goku.jpg')}
-body.anime-on[data-anime="vegeta"] #extraComparePanel{--cmp-accent:#bb9bff;--cmp-art:url('./fondo-vegeta.jpg')}
-@media(max-width:390px){body.anime-on #extraComparePanel .cmp-header{margin:-13px -13px 16px;padding:16px 12px;min-height:116px}}
+const nose=make(head,cone(.075,.22,4),skin,0,-.15,-.58);nose.rotation.x=-.18;
+const lip=make(head,box(.18,.028,.05),fabricShadow,0,-.37,-.519);
+// Shaped sideburns and more directional hair spikes for distinct anime profiles.
 
-</style><style id="anime-theme-menu-v2">
-/* MIS HORAS 4 TEMAS — identidad completa de navegación e historial. Inicio conserva estructura y funciones. */
-body.anime-on{--theme-halo:rgba(255,186,72,.3);--theme-edge:rgba(255,186,72,.48);--theme-field:rgba(24,18,27,.9);--theme-glow:#ffad43;--theme-motif:'✦';}
-body.anime-on[data-anime="naruto"]{--theme-halo:#ff9c3442;--theme-edge:#ffb45a8a;--theme-field:#261a20;--theme-glow:#ffb22e;--theme-motif:'◉';}
-body.anime-on[data-anime="itachi"]{--theme-halo:#fa264142;--theme-edge:#ff4e708c;--theme-field:#190f1b;--theme-glow:#ff3c65;--theme-motif:'◉';}
-body.anime-on[data-anime="goku"]{--theme-halo:#45b0ff45;--theme-edge:#5dc6ff90;--theme-field:#11243b;--theme-glow:#40b9ff;--theme-motif:'✦';}
-body.anime-on[data-anime="vegeta"]{--theme-halo:#8a78ff55;--theme-edge:#bca5ff95;--theme-field:#171833;--theme-glow:#a58bff;--theme-motif:'⚡';}
-body.anime-on .top{padding:9px 12px;border-radius:20px;background:linear-gradient(110deg,color-mix(in srgb,var(--panel) 85%,transparent),transparent);border:1px solid var(--theme-edge);box-shadow:0 10px 30px #0004,inset 0 1px #fff1}
-body.anime-on .brand img{border:1px solid var(--theme-edge);box-shadow:0 0 20px var(--theme-halo)}
-body.anime-on .theme-toggle{border:1px solid var(--theme-edge);background:linear-gradient(140deg,var(--hero1),var(--bg2));box-shadow:0 0 16px var(--theme-halo)}
-body.anime-on .anime-scene{height:222px;background-size:cover!important;border-radius:24px;border:1px solid var(--theme-edge);box-shadow:inset 0 0 26px var(--theme-halo),0 16px 35px #0009;isolation:isolate}
-body.anime-on .anime-scene::after{background:linear-gradient(0deg,var(--bg2) 0%,#0000 55%),linear-gradient(90deg,#0009 0%,#0001 70%)}
-body.anime-on .anime-scene-tag{font-size:clamp(17px,5vw,22px);text-transform:uppercase;letter-spacing:.14em;text-shadow:0 2px 6px #000,0 0 15px var(--theme-glow)}
-body.anime-on .anime-scene-tag::before{display:block;font-size:10px;letter-spacing:.21em;font-weight:800;margin-bottom:5px;color:#ffdfa0;content:'MODO ANIME  ·  NINJA'}
-body.anime-on[data-anime="itachi"] .anime-scene-tag::before{content:'◉  SHARINGAN  ·  AKATSUKI';color:#ff8c9e}
-body.anime-on[data-anime="goku"] .anime-scene-tag::before{content:'✦  KI  ·  GUERRERO SOLAR';color:#9adeff}
-body.anime-on[data-anime="vegeta"] .anime-scene-tag::before{content:'⚡  PODER  ·  PRÍNCIPE SAIYAJIN';color:#bfc3ff}
-body.anime-on[data-anime="naruto"] .anime-scene{background-position:70% 42%!important;}
-body.anime-on[data-anime="goku"] .anime-scene{background-position:70% 41%!important;}
-body.anime-on[data-anime="vegeta"] .anime-scene{background-position:68% 42%!important;}
-body.anime-on .panel{border:1px solid color-mix(in srgb,var(--theme-edge) 48%,transparent);box-shadow:0 12px 30px #0004,inset 0 1px #ffffff10;border-radius:21px;}
-body.anime-on .panel h2{color:#fff;text-shadow:0 0 16px var(--theme-halo)}
-body.anime-on .panel h2::before{content:var(--theme-motif);display:inline-flex;align-items:center;justify-content:center;margin-right:9px;width:25px;height:25px;flex-shrink:0;background:color-mix(in srgb,var(--accent) 17%,transparent);border:1px solid var(--theme-edge);color:var(--accent);border-radius:9px;font-size:13px}
-body.anime-on .tile,body.anime-on .listitem,body.anime-on .notice{background:linear-gradient(135deg,color-mix(in srgb,var(--tile) 80%,transparent),color-mix(in srgb,var(--bg2) 85%,transparent));border:1px solid color-mix(in srgb,var(--theme-edge) 48%,transparent);box-shadow:inset 0 1px #fff1}
-body.anime-on .primary{background:linear-gradient(112deg,var(--accent),color-mix(in srgb,var(--accent) 70%,white));box-shadow:0 4px 20px var(--theme-halo);color:#101320;border:1px solid #ffffff55}
-body.anime-on .secondary,body.anime-on .monthnav button{background:linear-gradient(135deg,var(--hero1),var(--bg2));border-color:var(--theme-edge);color:white}
-body.anime-on .field{background:var(--theme-field);border-color:color-mix(in srgb,var(--theme-edge) 72%,transparent);box-shadow:inset 0 2px 10px #0004}
-body.anime-on .field:focus{outline:2px solid var(--accent);outline-offset:1px}
-body.anime-on .rate.selected,body.anime-on .theme-choice.chosen{border-color:var(--accent);box-shadow:0 0 15px var(--theme-halo)}
-body.anime-on .nav{background:color-mix(in srgb,var(--panel) 95%,#020710);border-top:2px solid var(--theme-edge);box-shadow:0 -10px 36px #0009}
-body.anime-on .nav button.active{background:linear-gradient(150deg,color-mix(in srgb,var(--accent) 24%,transparent),color-mix(in srgb,var(--hero2) 88%,transparent));border:1px solid var(--theme-edge);box-shadow:0 0 22px var(--theme-halo)}
-/* The themed overtime comparison adopts the current hero's palette while retaining positive/negative meaning. */
-body.anime-on #extraComparePanel{--cmp-accent:var(--accent);--cmp-glow:var(--theme-halo);border-color:var(--theme-edge)!important;box-shadow:0 12px 35px #0009,0 0 24px var(--theme-halo)}
-body.anime-on #extraComparePanel .cmp-header{min-height:195px;}
-body.anime-on #extraComparePanel .cmp-header::before{background-size:cover;background-position:73% 43%;filter:brightness(1.18) saturate(1.18)}
-body.anime-on #extraComparePanel .cmp-header::after{background:linear-gradient(90deg,#070b18e8 0%,#071022bf 45%,#0509162c 100%),linear-gradient(0deg,#060913eb,transparent 65%)}
-body.anime-on #extraComparePanel .cmp-header-icon{background:var(--hero1)!important;border-color:var(--theme-edge)!important;color:white!important;box-shadow:0 0 22px var(--theme-halo)}
-body.anime-on #extraComparePanel .cmp-kicker{letter-spacing:.12em}
-body.anime-on[data-anime="naruto"] #extraComparePanel .cmp-kicker::before{content:'◉ NARUTO  /  ';color:#ffc26a}
-body.anime-on[data-anime="goku"] #extraComparePanel .cmp-kicker::before{content:'✦ GOKU  /  ';color:#87d8ff}
-body.anime-on[data-anime="vegeta"] #extraComparePanel .cmp-kicker::before{content:'⚡ VEGETA  /  ';color:#c0b6ff}
-body.anime-on #extraComparePanel .cmp-app{background:linear-gradient(145deg,color-mix(in srgb,var(--hero1) 70%,#0c1730),var(--bg2))!important;border-color:var(--theme-edge)!important}
-body.anime-on #extraComparePanel .cmp-paid{background:linear-gradient(145deg,#154c4a,#0c242d)!important;border-color:#72d5b366!important}
-body.anime-on #extraComparePanel .cmp-progress-fill{background:linear-gradient(90deg,var(--hero1),var(--accent))!important;box-shadow:0 0 14px var(--theme-halo)}
-body.anime-on #extraComparePanel .cmp-input-shell,body.anime-on #extraComparePanel .cmp-entry{background:color-mix(in srgb,var(--panel) 85%,#050711);border-color:var(--theme-edge)}
-body.anime-on #extraComparePanel .compare-pending{border-color:#ff6b7599!important;background:linear-gradient(135deg,#482033,#1c1325)!important}
-@media(max-width:390px){body.anime-on .anime-scene{height:195px}body.anime-on #extraComparePanel .cmp-header{min-height:170px}}
-</style></head><body><main class="app"><header class="top"><div class="brand"><img src="icon-192.png" alt="Logo MIS HORAS"><div><strong>MIS HORAS</strong><div class="sub">CONTROL PERSONAL DE HORAS EXTRAS</div></div></div><button class="theme-toggle" id="themeToggle" aria-label="Cambiar apariencia" title="Cambiar colores">🎨</button></header><div class="theme-panel hide" id="themePanel"><h2 style="font-size:15px;margin:0 0 12px">🎨 Apariencia</h2><div class="theme-grid"><button class="theme-choice" data-theme="azul"><span class="theme-swatch"><i style="background:#101e33"></i><i style="background:#73b4f8"></i></span>Azul original</button><button class="theme-choice" data-theme="negro"><span class="theme-swatch"><i style="background:#111111"></i><i style="background:#888888"></i></span>Negro</button><button class="theme-choice" data-theme="morado"><span class="theme-swatch"><i style="background:#39205b"></i><i style="background:#a78bfa"></i></span>Morado</button><button class="theme-choice" data-theme="verde"><span class="theme-swatch"><i style="background:#153d35"></i><i style="background:#34d399"></i></span>Verde oscuro</button><button class="theme-choice" data-theme="gris"><span class="theme-swatch"><i style="background:#353b47"></i><i style="background:#94a3b8"></i></span>Gris</button><button class="theme-choice" data-theme="rojo"><span class="theme-swatch"><i style="background:#111111"></i><i style="background:#dc2626"></i></span>Rojo y negro</button></div><p class="foot">El color se guarda en este dispositivo.</p></div>
-<section id="inicio" class="screen active"><div class="anime-scene" aria-hidden="true"><div class="anime-scene-tag" id="animeSceneTag">NARUTO</div></div><div class="hero"><div class="eyebrow">✧ Acumulado del período</div><div class="amount" id="homeMoney">$0</div><button type="button" class="money-toggle" data-money-toggle aria-label="Mostrar montos protegidos">🔒 Mostrar montos</button><div class="hero-foot"><span id="homeMonth">Octubre 2026</span><span class="green" id="homeHours">0 h 00 min extras</span></div></div><div class="panel"><h2>◷ Horario establecido <span class="muted small">⚙️ Editable en Ajustes</span></h2><div class="two"><div class="tile"><span class="small">Entrada fija</span><b id="fixedEntry">08:00</b></div><div class="tile"><span class="small">Salida fija</span><b id="fixedExit">17:00</b></div></div><div class="line small muted"><span id="fixedDays">Lunes a viernes</span><span id="fixedLunch">60 min colación</span></div></div><div class="panel"><h2>✎ Registro del día</h2><div class="group"><label class="label" for="date">Fecha</label><input class="field" type="date" id="date"></div><div class="two"><div class="group"><label class="label" for="entry">☀ Entrada real</label><input class="field" type="time" id="entry" value="08:00"></div><div class="group"><label class="label" for="exit">◕ Salida real</label><input class="field" type="time" id="exit" value="17:00"></div></div><div class="group"><label class="label">Recargo general del día</label><div class="rates" id="rates"><button class="rate selected" data-rate="50">50 %</button><button class="rate" data-rate="75">75 %</button><button class="rate" data-rate="100">100 %</button></div></div><hr class="rule"><div class="line"><span class="muted">Extras mañana</span><strong id="morning">0 h 00 min</strong></div><div class="line"><span class="muted">Extras tarde</span><strong id="evening">0 h 00 min</strong></div><div class="daily"><div class="eyebrow">Monto de horas extras del día</div><div class="big" id="dailyMoney">$0</div><button type="button" class="money-toggle" data-money-toggle aria-label="Mostrar montos protegidos">🔒 Mostrar montos</button><div class="small muted" id="dailyHours">0 h 00 min · Recargo 50 %</div></div><p class="foot" id="warning"></p><button class="primary" id="save">Guardar jornada</button></div><h2 style="font-size:16px">Últimos registros <button class="secondary" style="float:right;font-size:12px" data-go="historial">Ver todos →</button></h2><div id="recent"></div></section>
-<section id="historial" class="screen"><h1 class="page-title">Historial de jornadas</h1><div class="hero"><div class="eyebrow">Total del período seleccionado</div><div class="amount" id="historyMoney">$0</div><button type="button" class="money-toggle" data-money-toggle aria-label="Mostrar montos protegidos">🔒 Mostrar montos</button><div class="hero-foot"><span id="historyHours">0 h 00 min extras</span><span id="historyDays">0 días</span></div></div><div class="monthnav"><button id="prev">‹</button><span id="monthLabel"></span><button id="next">›</button></div><p class="muted small center" id="periodLabel"></p><div class="panel" id="extraComparePanel">
-<div class="cmp-header"><div class="cmp-header-icon" aria-hidden="true">⇄</div><div><span class="cmp-kicker">CONTROL DE PAGOS</span><h2>Comparación de horas extras</h2><p>Horas registradas frente a horas pagadas · Período seleccionado</p></div></div>
-<div id="compareLocked" class="cmp-lock"><div class="cmp-lock-icon" aria-hidden="true">▣</div><div><strong>Tu comparación, en privado</strong><span>Accede con el PIN de Mi sueldo. No cambia tus registros.</span></div><button class="primary cmp-unlock" id="compareUnlock" type="button">Abrir con PIN →</button></div>
-<div id="compareOpen" class="hide">
-<div class="compare-grid cmp-results">
-<div class="compare-card cmp-app"><div class="cmp-card-heading"><span class="cmp-card-dot" aria-hidden="true"></span> CALCULADAS POR MIS HORAS</div><div class="cmp-card-metric" id="compareCalcHours">0 h 00 min</div><div class="cmp-card-label">Monto calculado</div><div class="cmp-card-money" id="compareCalcMoney">$0</div></div>
-<div class="compare-card cmp-paid"><div class="cmp-card-heading"><span class="cmp-card-dot" aria-hidden="true"></span> PAGADAS POR EMPRESA</div><div class="cmp-card-metric" id="comparePaidHours">Sin informar</div><div class="cmp-card-label">Monto que figura en liquidación</div><div class="cmp-card-money" id="comparePaidMoney">Sin informar</div></div>
-</div>
-<div class="cmp-progress-block"><div class="cmp-progress-head"><span>Horas pagadas respecto de las registradas</span><strong id="compareProgressLabel">—</strong></div><div class="cmp-track" role="progressbar" aria-label="Proporción de horas pagadas" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="compareProgressBar"><div class="cmp-progress-fill" id="compareProgressFill"></div></div><div class="cmp-legend"><span><i class="cmp-key-blue"></i> Registradas</span><span><i class="cmp-key-green"></i> Pagadas</span></div></div>
-<div class="cmp-entry"><div class="cmp-section-title"><span class="cmp-step">01</span><div><strong>Datos de tu liquidación</strong><small>Ingresa solo las horas extras efectivamente pagadas.</small></div></div>
-<div class="compare-inputs">
-<label><span>Recargo 50 %</span><span class="cmp-input-shell"><input class="field" id="paid50" type="number" inputmode="decimal" min="0" step="0.25" placeholder="0"><em>h</em></span></label>
-<label><span>Recargo 75 %</span><span class="cmp-input-shell"><input class="field" id="paid75" type="number" inputmode="decimal" min="0" step="0.25" placeholder="0"><em>h</em></span></label>
-<label><span>Recargo 100 %</span><span class="cmp-input-shell"><input class="field" id="paid100" type="number" inputmode="decimal" min="0" step="0.25" placeholder="0"><em>h</em></span></label>
-</div>
-<div class="cmp-amount-field"><label for="paidAmount">Monto total de horas extras pagado</label><div class="cmp-money-input"><span aria-hidden="true">$</span><input class="field" id="paidAmount" type="number" inputmode="numeric" min="0" step="1" placeholder="0"></div><small>Escribe el monto de horas extras de tu liquidación, no tu sueldo.</small></div></div>
-<div class="cmp-section-title cmp-result-title"><span class="cmp-step">02</span><div><strong>Resultado de la comparación</strong><small>Diferencias según los datos del período</small></div></div>
-<div class="compare-pending"><span class="cmp-pending-caption">PENDIENTE POR REVISAR</span><div class="cmp-diff-grid"><div><small>Horas de diferencia</small><strong id="compareMissingHours">—</strong></div><div><small>Monto de diferencia</small><strong id="compareMissingMoney">—</strong></div></div><p id="compareExplanation" class="compare-note"></p></div>
-<details class="cmp-rate-details"><summary>Ver desglose por recargo <span aria-hidden="true">⌄</span></summary><p id="compareRates" class="cmp-rates"></p></details>
-<div class="cmp-footer"><span id="compareSaveStatus" role="status">Ingresa datos para comparar.</span><button type="button" class="secondary" id="compareClose">Cerrar 🔒</button></div>
-<p class="cmp-disclaimer">Los datos se guardan en este dispositivo por período. Esta es una comparación referencial: revisa tu liquidación para confirmar diferencias. No altera jornadas ni sueldos.</p>
-</div></div></div><div class="panel"><h2>📄 Liquidación mensual en PDF</h2><p class="small muted">Período seleccionado arriba. Informe personal con sueldo base, detalle diario, recargos y total bruto estimado. Para proteger el informe se solicita tu PIN privado.</p><button class="primary" id="makePdf">🔒 Generar PDF privado</button><p class="foot">En iPhone: Compartir → Imprimir → ampliar la vista previa → Compartir → Guardar en Archivos (PDF).</p></div><div id="historyList"></div></section>
-<section id="sueldo" class="screen"><h1 class="page-title">🔒 Mi sueldo</h1><div class="panel center" id="locked"><div class="lock">🛡️</div><h2 style="display:block" id="pinTitle">Crear PIN privado</h2><p class="muted small" id="pinHelp">Establece un PIN de cuatro números para ocultar tus valores salariales de miradas casuales.</p><div class="group"><input id="pinInput" class="field center" type="password" inputmode="numeric" maxlength="4" placeholder="••••" autocomplete="off"></div><button id="pinAction" class="primary">Crear PIN y entrar</button><p class="foot" id="pinError"></p></div><div id="unlocked" class="hide"><div class="panel"><div class="line"><span class="green">✓ Menú desbloqueado</span><button id="relock" class="secondary">🔒 Bloquear</button></div><div class="group"><label class="label" for="salary">Sueldo base mensual (CLP)</label><input id="salary" class="field" type="number" min="0" step="1000" placeholder="Ej.: 800000"></div><hr class="rule"><h2>Valores estimados por hora extra</h2><div class="line"><span class="muted">Recargo 50 %</span><strong id="v50">$0</strong></div><div class="line"><span class="muted">Recargo 75 %</span><strong id="v75">$0</strong></div><div class="line"><span class="muted">Recargo 100 %</span><strong id="v100">$0</strong></div><p class="foot">Cálculo referencial: sueldo mensual × 7 ÷ 30 ÷ 42, multiplicado por el recargo. Confirma la fórmula aplicable con tu liquidación o contrato.</p></div><div class="notice">El PIN protege la visualización casual de tu sueldo y el PDF. Los datos permanecen guardados localmente sin cifrar. Los montos en Inicio e Historial se mantienen ocultos.</div></div></section>
-<section id="ajustes" class="screen"><h1 class="page-title">Ajustes</h1><div class="panel"><h2>🏢 Datos laborales para PDF</h2><p class="small muted">Se utilizarán únicamente en tu informe privado.</p><div class="group"><label class="label">Empresa / razón social</label><input class="field" id="companyName" placeholder="Nombre de la empresa"></div><div class="group"><label class="label">RUT de la empresa</label><input class="field" id="companyRut" placeholder="76.123.456-7"></div><div class="group"><label class="label">Nombre del trabajador</label><input class="field" id="workerName" placeholder="Nombre y apellido"></div><div class="group"><label class="label">RUT del trabajador</label><input class="field" id="workerRut" placeholder="12.345.678-5"></div><button class="primary" id="saveLabor">Guardar datos laborales</button><p class="foot">Los datos quedan guardados en este dispositivo.</p></div><div class="panel"><h2>📅 Corte de horas extras</h2><p class="small muted">Selecciona el último día del período. El día siguiente comienza un acumulado nuevo desde cero, sin borrar el historial.</p><div class="group"><label class="label" for="cutoffDay">Último día del período</label><select class="field" id="cutoffDay"><option value="20">Día 20</option><option value="21">Día 21</option><option value="22">Día 22</option><option value="23">Día 23</option><option value="24">Día 24</option><option value="25">Día 25</option></select></div><p class="cutoff-note" id="cutoffExample"></p><button class="primary" id="saveCutoff">Guardar fecha de corte</button></div><div class="panel"><h2>◷ Configura tu jornada laboral</h2><p class="small muted">Personaliza tu horario fijo y los días de trabajo. Se aplicará a los registros nuevos; los anteriores conservan sus montos.</p><div class="two"><div class="group"><label class="label" for="setEntry">Entrada establecida</label><input class="field" type="time" id="setEntry"></div><div class="group"><label class="label" for="setExit">Salida establecida</label><input class="field" type="time" id="setExit"></div></div><div class="group"><label class="label" for="setLunch">Colación (minutos)</label><input class="field" type="number" id="setLunch" min="0" max="240" step="5"></div><div class="group"><label class="label">Días laborales</label><div id="workdays" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px"><label><input type="checkbox" value="1"> Lun</label><label><input type="checkbox" value="2"> Mar</label><label><input type="checkbox" value="3"> Mié</label><label><input type="checkbox" value="4"> Jue</label><label><input type="checkbox" value="5"> Vie</label><label><input type="checkbox" value="6"> Sáb</label><label><input type="checkbox" value="0"> Dom</label></div></div><button class="primary" id="saveSettings">Guardar horario</button><p class="foot" id="settingsMsg"></p><div class="notice">El horario establecido se muestra en Inicio, pero no cambia al registrar las horas reales. Las horas extras se calculan antes de la entrada fija y después de la salida fija, en los días seleccionados.</div></div><div class="panel" id="menuPersonalizar"><h2>🎨 Personalizar menú</h2><p class="small muted">Cambia los íconos de la barra inferior sin modificar las cuatro secciones. Tu elección queda guardada en este dispositivo.</p><div class="group"><label class="label" for="menuStyle">Estilo de íconos</label><select class="field" id="menuStyle"><option value="premium">Premium</option><option value="moderno">Moderno</option><option value="minimalista">Minimalista</option><option value="neon">Neón</option><option value="redondeado">Redondeado</option><option value="clasico">Clásico</option></select></div><div class="group"><label class="label" for="menuColor">Color de los íconos</label><select class="field" id="menuColor"><option value="azul">Azul</option><option value="morado">Morado</option><option value="verde">Verde</option><option value="rojo">Rojo</option></select></div><p class="small muted">Vista previa: mira los íconos del menú inferior mientras cambias las opciones.</p><button class="primary" id="saveMenuPrefs">Guardar personalización</button><p class="foot" id="menuSavedMsg" aria-live="polite"></p></div><div class="panel" id="animeExtraPanel"><h2>✨ Modo Anime · Extra opcional</h2><p class="small muted">La apariencia original se conserva. Al apagar este modo vuelven tus colores e íconos de siempre.</p><div class="anime-extra-controls"><label class="anime-extra-toggle"><strong>Activar modo anime</strong><input type="checkbox" id="animeExtraToggle" aria-label="Activar o desactivar modo anime"></label><div id="animeExtraOptions" hidden><span class="label">Elige un estilo anime: fondo e íconos del menú</span><div class="anime-extra-choices"><button type="button" data-anime-choice="naruto">🍥 Naruto<small>Naranja ninja</small></button><button type="button" data-anime-choice="itachi">🔴 Itachi<small>Rojo Akatsuki</small></button><button type="button" data-anime-choice="goku">⚡ Goku<small>Azul y naranja</small></button><button type="button" data-anime-choice="vegeta">💜 Vegeta<small>Azul y violeta</small></button></div></div><p class="foot">El modo anime cambia los colores y los cuatro íconos del menú. Al desactivarlo vuelve tu estilo original. No modifica horas, sueldo, historial ni PDF.</p></div></div><div class="panel"><h2>🛡️ Privacidad</h2><p class="small muted">El sueldo y las tarifas se encuentran en el menú privado «Mi sueldo».</p><button class="secondary" data-go="sueldo">Abrir Mi sueldo →</button></div><div class="panel"><h2>↧ Respaldo</h2><p class="small muted">Exporta tus registros y tu configuración a un archivo JSON. Guárdalo en Archivos o iCloud.</p><button class="secondary" id="export">Exportar respaldo</button><div class="group" style="margin-top:15px"><label class="label" for="import">Restaurar respaldo JSON</label><input class="field" id="import" type="file" accept="application/json,.json"></div><p class="foot">Importar reemplaza los registros existentes. El sueldo y el PIN no se incluyen en el respaldo por privacidad.</p></div><p class="foot">Los datos se guardan en el almacenamiento local de este navegador y pueden perderse si se eliminan los datos del sitio o la app. Usa respaldos regularmente. Los días seleccionados se calculan según el horario configurado. Para trabajo en días de descanso o festivos pueden aplicarse reglas legales distintas.</p></section></main>
-<nav class="nav" aria-label="Navegación"><button class="active" data-go="inicio"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V21h-7v-7h-4v7H3z"/><path d="M7 10h2"/></svg>Inicio</button><button data-go="historial"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 2v6M17 2v6M3 11h18m5 5 2 2 4-4"/></svg>Historial</button><button data-go="sueldo"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="7" width="19" height="14" rx="3"/><path d="M2.5 11h19M7 7V5a2 2 0 0 1 2-2h9"/><circle cx="16" cy="16" r="2"/></svg>Mi sueldo</button><button data-go="ajustes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/><circle cx="9" cy="7" r="2" fill="var(--panel)"/><circle cx="15" cy="12" r="2" fill="var(--panel)"/><circle cx="9" cy="17" r="2" fill="var(--panel)"/></svg>Ajustes</button></nav><div class="toast" id="toast"></div><script src="app.js"></script></body></html>
+if(isHero){
+ // Martial arts gi: contrasting V-neck, layered collar, ties and loose cloth panels.
+ const v1=make(body,box(.2,.62,.11),inner,-.22,2.98,-.48);v1.rotation.z=-.47;
+ const v2=make(body,box(.2,.62,.11),inner,.22,2.98,-.48);v2.rotation.z=.47;
+ for(let side of [-1,1]){
+  const flap=make(body,box(.33,.57,.075),fabricLight,side*.22,1.52,-.51);flap.rotation.z=side*.1;
+  const sleeveEdge=make(body,cylinder(.35,.39,.13,10),fabricShadow,side*.93,2.61,0);sleeveEdge.rotation.z=side*.19;
+  const bootStripe=make(body,box(.09,.1,.37),metal,side*.35,.14,-.28);
+ }
+ const knot=make(body,sphere(.19,10,8),accent,0,1.84,-.51);knot.scale.set(1.35,.57,.4);
+}else{
+ // Rival: segmented chest armour and shoulder guards; very different silhouette.
+ const torsoPlate=make(body,sphere(1,14,10),inner,0,2.58,-.36);torsoPlate.scale.set(.67,.65,.15);
+ const chestPanel=make(body,box(.86,.42,.1),metal,0,2.72,-.51);
+ for(let side of [-1,1]){
+  const pauldron=make(body,sphere(.46,12,10),metal,side*.91,2.91,.02);pauldron.scale.set(1.15,.45,.92);pauldron.rotation.z=side*.20;
+  const seam=make(body,box(.095,.54,.08),fabricLight,side*.40,2.27,-.49);seam.rotation.z=side*.13;
+  const waistPlate=make(body,box(.34,.34,.14),metal,side*.3,1.63,-.43);
+  const shin=make(body,box(.31,.61,.17),metal,side*.34,.32,-.3);
+ }
+ const gem=make(body,new THREE.OctahedronGeometry(.20),accent,0,2.67,-.61);gem.scale.set(.9,1.3,.58);
+}
+let L=arm(-1),R=arm(1),ll=leg(-1),rl=leg(1);let aura=new THREE.Group();root.add(aura);
+for(let j=0;j<5;j++){let ring=make(aura,new THREE.TorusGeometry(1.15+j*.25,.03,5,28),shine,0,1.35+j*.48,0);ring.rotation.x=Math.PI/2;ring.visible=false;ring.userData.kind='ring';ring.userData.baseScale=1+j*.03}
+for(let j=0;j<6;j++){let spark=make(aura,new THREE.OctahedronGeometry(.12+(j%2)*.06),new THREE.MeshBasicMaterial({color:auraColor,transparent:true,opacity:.72,depthWrite:false,blending:THREE.AdditiveBlending}),Math.cos(j)*1.1,1.0+j*.58,Math.sin(j)*.85);spark.visible=false;spark.userData.kind='spark';spark.userData.baseY=1.0+j*.58;spark.userData.angle=j*1.04}
+let shell=make(aura,new THREE.SphereGeometry(1.05,18,12),new THREE.MeshBasicMaterial({color:auraColor,transparent:true,opacity:.14,depthWrite:false,blending:THREE.AdditiveBlending}),0,2.2,0);shell.scale.set(.95,1.25,.95);shell.visible=false;shell.userData.kind='shell';
+const shadow=make(root,new THREE.CircleGeometry(1.2,24),new THREE.MeshBasicMaterial({color:0x151224,transparent:true,opacity:.17,depthWrite:false}),0,-3.85,0);shadow.rotation.x=-Math.PI/2;
+// Black silhouette contours make the procedural meshes read like drawn animation.
+const edgeMat=new THREE.MeshBasicMaterial({color:0x141126,side:THREE.BackSide,depthWrite:false});const originals=[];body.traverse(o=>{if(o.isMesh&&o.geometry&&o.material!==shine)originals.push(o)});for(const o of originals){const edge=new THREE.Mesh(o.geometry,edgeMat);edge.position.copy(o.position);edge.rotation.copy(o.rotation);edge.scale.copy(o.scale).multiplyScalar(1.065);edge.renderOrder=-1;o.parent.add(edge)}
+return {root,body,head,L,R,ll,rl,aura,shadow,energy:scheme.energy,auraColor,ki:100,hp:100,stun:0,attack:0,attackType:0,attackApplied:false,attackID:0,guard:0,charging:false,walk:0,phase:Math.random()*7,vel:V(),combo:0,lastPunch:-20}}
+const player=fighter({skin:0xeaa97b,hair:0x15182d,suit:0xdb6c24,accent:0x215dbe,dark:0x1f3b85,shoe:0x263867,energy:0x6ceaff,aura:0xff3b30});const enemy=fighter({skin:0xe1a77f,hair:0xd9d7d2,suit:0x563a8c,accent:0xd3beef,dark:0x252544,shoe:0x24243f,energy:0xff648e,aura:0x9c5bff});scene.add(player.root,enemy.root);player.root.position.set(-2.7,1.1,1.5);enemy.root.position.set(2.7,1.1,-1.5);
+
+// V10: local licensed GLB character support. Deliberately no paid asset is redistributed.
+const riggedSlots = [];
+const clipRules = [
+  ['hurt',/hit|hurt|damage|react|stagger/i],
+  ['punch',/punch|attack|combo|strike|melee/i],
+  ['kick',/kick|roundhouse|legstrike/i],
+  ['charge',/power|charge|cast|spell|skill/i],
+  ['dash',/dash|dodge|evade|roll/i],
+  ['run',/run|walk|locomotion|sprint/i],
+  ['idle',/idle|breath|stand|rest/i]
+];
+function chooseClip(clips,kind){const rule=clipRules.find(([k])=>k===kind);return clips.find(c=>rule[1].test(c.name))||null;}
+function bindRig(f,visual,clips,index){
+  // Scale rig to approximately 4 world units tall, with feet at the root baseline.
+  visual.updateMatrixWorld(true);
+  const bb=new THREE.Box3().setFromObject(visual);const sz=bb.getSize(new THREE.Vector3());
+  if(sz.y<.001)throw Error('El modelo GLB no tiene geometría visible');
+  const scale=4.05/sz.y;visual.scale.multiplyScalar(scale);
+  visual.updateMatrixWorld(true);const fitted=new THREE.Box3().setFromObject(visual);
+  const center=fitted.getCenter(new THREE.Vector3());
+  visual.position.x-=center.x;visual.position.z-=center.z;
+  visual.position.y-=fitted.min.y+.45;
+  // Keep V9 fighter logic, hide its geometric body while retaining its hitbox, aura and shadow.
+  f.body.visible=false;
+  f.root.add(visual);
+  visual.traverse(o=>{if(o.isMesh){o.frustumCulled=false;o.castShadow=false;o.receiveShadow=false;}});
+  const mixer=new THREE.AnimationMixer(visual);const actions={};
+  for(const [kind] of clipRules){let c=chooseClip(clips,kind);if(c){const a=mixer.clipAction(c);actions[kind]=a;}}
+  riggedSlots.push({f,visual,mixer,actions,active:null,kind:null});
+  // Opponent's coloring is intentionally not altered: changing materials can ruin supplied textures.
+  playRig(riggedSlots[riggedSlots.length-1],'idle');
+  console.info('Anime Warrior GLB conectado',index,'animaciones:',clips.map(c=>c.name));
+}
+function playRig(slot,kind){
+  const next=slot.actions[kind]||slot.actions.idle||Object.values(slot.actions)[0];
+  if(!next||slot.active===next)return;
+  const old=slot.active;slot.active=next;slot.kind=kind;
+  next.reset().setEffectiveTimeScale(1).setEffectiveWeight(1).fadeIn(.14).play();
+  if(old)old.fadeOut(.14);
+  if(kind==='hurt'||kind==='punch'||kind==='kick'||kind==='charge'||kind==='dash'){next.setLoop(THREE.LoopOnce,1);next.clampWhenFinished=true;}
+  else {next.setLoop(THREE.LoopRepeat,Infinity);next.clampWhenFinished=false;}
+}
+function tickRigs(dt){for(const slot of riggedSlots){let f=slot.f;let desired=f.stun>.035?'hurt':f.attack>.035?(f.attackType>=4?'charge':f.attackType===3?'kick':'punch'):f.walk>.08?'run':'idle';playRig(slot,desired);slot.mixer.update(dt);}}
+async function loadWarriors(){
+  const loader=new GLTFLoader();
+  const source='assets/anime-warrior.glb';
+  try{
+    const gltf=await loader.loadAsync(source);
+    if(!gltf.scene)throw Error('Archivo sin escena 3D');
+    if(mocapSlots.length===0)for(const [i,f] of [player,enemy].entries())bindRig(f,cloneSkeleton(gltf.scene),gltf.animations||[],i);
+    const st=document.getElementById('warrior-status');if(st)st.textContent='MODELO 3D: ANIME WARRIOR CARGADO';
+  }catch(e){
+    const st=document.getElementById('warrior-status');if(st)st.textContent='V20 · MOCAP ROKOKO EN CARGA';
+    console.warn('El modelo adquirido se agrega a assets/anime-warrior.glb:',e);
+  }
+}
+loadWarriors();
+
+
+// V20: Rokoko FBX animations drive a full-body, joint-following character instead of artificial limb oscillation.
+const mocapSlots=[];
+const MOCAP_FILES=[
+ ['idle','FightingIdle_mixamo.fbx'],
+ ['punch','Boxing_mixamo.fbx'],
+ ['kick','BigFrontKick_mixamo.fbx'],
+ ['round','RoundHouseKick_mixamo.fbx'],
+ ['combo','ShadowBoxing_mixamo.fbx']
+];
+const mocapSegments=[
+ ['Hips','Spine2',.38,'shirt'],['Spine2','Neck',.31,'shirt'],
+ ['LeftShoulder','LeftArm',.19,'shirt'],['LeftArm','LeftForeArm',.16,'skin'],['LeftForeArm','LeftHand',.14,'skin'],
+ ['RightShoulder','RightArm',.19,'shirt'],['RightArm','RightForeArm',.16,'skin'],['RightForeArm','RightHand',.14,'skin'],
+ ['LeftUpLeg','LeftLeg',.27,'pants'],['LeftLeg','LeftFoot',.21,'pants'],['LeftFoot','LeftToeBase',.17,'boot'],
+ ['RightUpLeg','RightLeg',.27,'pants'],['RightLeg','RightFoot',.21,'pants'],['RightFoot','RightToeBase',.17,'boot']
+];
+function mocapBone(group,name){let found=null;group.traverse(o=>{if(!found&&o.isBone&&(o.name===name||o.name.endsWith(':'+name)||o.name.endsWith('_'+name)||o.name==='mixamorig'+name))found=o});return found}
+const mocapAxis=new THREE.Vector3(0,1,0), mocapCylinder=new THREE.CylinderGeometry(1,1,1,12), mocapSphere=new THREE.SphereGeometry(1,16,12);
+function mocapStyle(f){let isHero=f===player;return {
+ skin:new THREE.MeshToonMaterial({color:isHero?0xf4b992:0xdfaa90,gradientMap:gradient}),
+ shirt:new THREE.MeshToonMaterial({color:isHero?0xe28532:0x644da3,gradientMap:gradient}),
+ pants:new THREE.MeshToonMaterial({color:isHero?0x345db6:0x272b52,gradientMap:gradient}),
+ boot:new THREE.MeshToonMaterial({color:isHero?0x17254b:0x262339,gradientMap:gradient}),
+ hair:new THREE.MeshToonMaterial({color:isHero?0x111426:0xd6d7e4,gradientMap:gradient})
+}}
+function makeMocapDisplay(f){
+ const visual=new THREE.Group();f.root.add(visual);const mats=mocapStyle(f);
+ const limbs=mocapSegments.map(([a,b,r,mat])=>{let mesh=new THREE.Mesh(mocapCylinder,mats[mat]);visual.add(mesh);return {a,b,r,mesh}});
+ const head=new THREE.Mesh(mocapSphere,mats.skin);visual.add(head);
+ const hairGroup=new THREE.Group();visual.add(hairGroup);
+ const cap=new THREE.Mesh(mocapSphere,mats.hair);cap.scale.set(.31,.18,.30);hairGroup.add(cap);
+ for(let i=0;i<12;i++){
+  let angle=i*2.39996;
+  let blade=new THREE.Mesh(new THREE.ConeGeometry(.105+(i%3)*.018,.30+(i%5)*.045,5),mats.hair);
+  blade.position.set(Math.cos(angle)*.19,.15+(i%3)*.045,Math.sin(angle)*.19);
+  blade.rotation.z=-Math.cos(angle)*.4;blade.rotation.x=Math.sin(angle)*.4;hairGroup.add(blade);
+ }
+ // Layered outfit details fitted to the animated body rather than box-shaped clothing.
+ const wristMat=new THREE.MeshToonMaterial({color:f===player?0xf1bc6c:0xbfc2df,gradientMap:gradient});
+ const wristL=new THREE.Mesh(mocapSphere,wristMat),wristR=new THREE.Mesh(mocapSphere,wristMat);
+ wristL.scale.set(.17,.13,.17);wristR.scale.copy(wristL.scale);visual.add(wristL,wristR);
+ return {visual,limbs,head,hairGroup,wristL,wristR};
+}
+function bindMocapPose(f,group){const names=new Set(mocapSegments.flatMap(s=>s.slice(0,2)).concat(['Head','Hips','LeftHand','RightHand']));
+ const bones={};for(const n of names)bones[n]=mocapBone(group,n);
+ for(const n of ['Hips','Head','LeftArm','RightArm','LeftLeg','RightLeg'])if(!bones[n])throw new Error('Hueso faltante: '+n);
+ const v1=new THREE.Vector3(),v2=new THREE.Vector3();group.updateMatrixWorld(true);bones.Hips.getWorldPosition(v1);bones.Head.getWorldPosition(v2);
+ return {group,bones,scale:2.25/Math.max(.05,v1.distanceTo(v2))};
+}
+function showMocap(slot,pose,dt){
+ pose.group.updateMatrixWorld(true);
+ const b=pose.bones,hips=new THREE.Vector3();b.Hips.getWorldPosition(hips);
+ const get=(name)=>{const bone=b[name];if(!bone)return null;let v=new THREE.Vector3();bone.getWorldPosition(v);v.sub(hips).multiplyScalar(pose.scale);v.y+=1.65;return v};
+ const smooth=1-Math.exp(-dt*20);
+ for(const item of slot.display.limbs){const a=get(item.a),z=get(item.b);if(!a||!z){item.mesh.visible=false;continue}item.mesh.visible=true;
+  const d=z.clone().sub(a),length=d.length();if(length<.001)continue;
+  item.mesh.position.lerp(a.add(z).multiplyScalar(.5),smooth);item.mesh.scale.set(item.r,length,item.r);
+  const q=new THREE.Quaternion().setFromUnitVectors(mocapAxis,d.normalize());item.mesh.quaternion.slerp(q,smooth);
+ }
+ const h=get('Head');if(h){slot.display.head.position.lerp(h,smooth);slot.display.head.scale.set(.31,.39,.29);slot.display.hairGroup.position.copy(slot.display.head.position).add(new THREE.Vector3(0,.32,0))}
+ const lh=get('LeftHand'),rh=get('RightHand');if(lh)slot.display.wristL.position.copy(lh);if(rh)slot.display.wristR.position.copy(rh);
+}
+// V21: each FBX is loaded independently; one failed file no longer disables all combat animations.
+const mocapReady=new Set();
+const mocapErrors=[];
+function mocapNotice(msg,failed=false){
+ const st=document.getElementById('warrior-status');
+ if(st){st.textContent=msg;st.style.background=failed?'#712134e8':'#0f3454dd';st.style.color='white';}
+}
+function addMocapAnimation(kind,source){
+ if(!source.animations||!source.animations.length)throw Error('FBX sin animación');
+ for(const f of [player,enemy]){
+  let slot=mocapSlots.find(s=>s.f===f);
+  if(!slot){const display=makeMocapDisplay(f);slot={f,display,rigs:{},kind:null,lastAttackId:-1};mocapSlots.push(slot)}
+  const group=cloneSkeleton(source);group.visible=false;scene.add(group);
+  const pose=bindMocapPose(f,group);
+  const mixer=new THREE.AnimationMixer(group);
+  // Use the original clip explicitly rather than trusting clone metadata.
+  const action=mixer.clipAction(source.animations[0].clone());
+  if(kind==='idle'||kind==='combo')action.setLoop(THREE.LoopRepeat,Infinity);
+  else{action.setLoop(THREE.LoopOnce,1);action.clampWhenFinished=true;}
+  action.play();slot.rigs[kind]={...pose,mixer,action};
+  f.body.visible=false;
+ }
+ mocapReady.add(kind);
+}
+async function loadMocapFighters(){
+ const loader=new FBXLoader();
+ // Always load idle first to put a visible Rokoko character into the arena early.
+ for(const [kind,file] of MOCAP_FILES){
+  mocapNotice('ROKOKO: CARGANDO '+kind.toUpperCase());
+  try{
+   const source=await loader.loadAsync('assets/rokoko/'+file);
+   addMocapAnimation(kind,source);
+   mocapNotice('ROKOKO ACTIVO: '+Array.from(mocapReady).join(', ').toUpperCase());
+  }catch(err){
+   mocapErrors.push(kind+': '+err.message);
+   console.error('FBX Rokoko: '+file,err);
+   mocapNotice('ERROR '+kind.toUpperCase()+': '+String(err.message).slice(0,75),true);
+  }
+ }
+ if(!mocapReady.size)mocapNotice('ROKOKO FALLÓ. REVISA CARPETA assets/rokoko/',true);
+ else mocapNotice('ROKOKO: '+Array.from(mocapReady).join(' / ').toUpperCase()+(mocapErrors.length?' · '+mocapErrors.length+' ERROR(ES)':''),mocapErrors.length>0);
+}
+function tickMocap(dt){
+ for(const slot of mocapSlots){
+  const f=slot.f;
+  let kind=f.attack>.03&&f.attackType<=3?(f.attackType===3?'kick':'punch'):(f.walk>.16?'combo':'idle');
+  if(f.attack>.03&&f.attackType>=4)kind='idle';
+  if(f.attack>.03&&f.attackType===3&&f.attackID%2===0)kind='round';
+  // If a clip is missing, keep the last working pose or the idle pose.
+  if(!slot.rigs[kind])kind=slot.rigs.idle?'idle':Object.keys(slot.rigs)[0];
+  if(!kind)continue;
+  if(kind!==slot.kind){slot.kind=kind;slot.rigs[kind].action.reset().play();}
+  const rig=slot.rigs[kind];rig.mixer.update(dt*(kind==='punch'||kind==='kick'||kind==='round'?1.2:1));
+  showMocap(slot,rig,dt);
+ }
+}
+loadMocapFighters();
+
+let objects=[],bullets=[],superBeams=[],state='menu',elapsed=0,roundTime=99,shake=0,stopTime=0,flash=0,annTime=0,comboTextTime=0,aiCD=.6,comboChain=0,camPos=V(1,6,16),keys={up:false,down:false,charge:false},stick={x:0,y:0},last=performance.now();const effectsMat=(color,op=1)=>new THREE.MeshBasicMaterial({color,transparent:true,opacity:op,depthWrite:false,blending:THREE.AdditiveBlending});const sparkgeo=new THREE.IcosahedronGeometry(.12,0),trailgeo=new THREE.SphereGeometry(1,9,7);
+function effect(obj,vel,life,grow=0){scene.add(obj);objects.push({obj,vel,life,max:life,grow})}let fxQuality=true,impactPower=0,speedPower=0;const impactNode=$('impact'),speedNode=$('speedlines');$('quality').onclick=()=>{fxQuality=!fxQuality;$('quality').textContent='EFECTOS: '+(fxQuality?'ALTO':'LIGERO');renderer.setPixelRatio(Math.min(devicePixelRatio||1,fxQuality?1.6:1));renderer.setSize(innerWidth,innerHeight)};
+function burstRing(pos,color,scale=2){let m=new THREE.Mesh(new THREE.TorusGeometry(1,.13,6,48),new THREE.MeshBasicMaterial({color,transparent:true,opacity:.85,depthWrite:false,blending:THREE.AdditiveBlending}));m.position.copy(pos);m.quaternion.copy(camera.quaternion);m.scale.setScalar(scale*.35);effect(m,V(),.32,scale*7)}
+function blastAt(pos,color,count=16,size=1){impactPower=Math.max(impactPower,Math.min(.8,size*.33));speedPower=Math.max(speedPower,Math.min(.6,size*.25));if(fxQuality)burstRing(pos,color,size);shake=Math.max(shake,size*.34);flash=Math.max(flash,.08);for(let i=0;i<count;i++){let shard=make(scene,sparkgeo,effectsMat(color),pos.x,pos.y,pos.z);shard.scale.setScalar(rand(.45,1.8)*size);let v=V(rand(-1,1),rand(-1,1),rand(-1,1)).normalize().multiplyScalar(rand(3,12)*size);objects.push({obj:shard,vel:v,life:rand(.18,.48),max:.5,grow:-1})}let ring=make(scene,new THREE.TorusGeometry(.7,.08,6,28),effectsMat(color,.9),pos.x,pos.y,pos.z);ring.lookAt(camera.position);objects.push({obj:ring,vel:V(),life:.27,max:.27,grow:8*size})}
+function speak(t,duration=.72){$('ann').textContent=t;$('ann').classList.add('on');annTime=duration}function comboNote(n){$('combo').textContent=n+' GOLPES · COMBO';$('combo').classList.add('on');comboTextTime=.8}
+function hurt(victim,damage,source,force=1){if(victim.guard>0)return false;victim.hp=Math.max(0,victim.hp-damage);victim.stun=.23*force;victim.vel.addScaledVector(victim.root.position.clone().sub(source.root.position).normalize(),5.5*force);victim.attack=0;blastAt(victim.root.position.clone().add(V(0,2.3,0)),source.energy,Math.round(18*force),force);stopTime=.06;return true}
+function punch(attacker,kind){if(attacker.stun>0||attacker.attack>0)return false;attacker.attack=kind===3?.53:.40;attacker.attackType=kind;attacker.attackApplied=false;attacker.attackID++;attacker.walk=0;return true}
+function targetInFront(attacker,target,range){
+ const toward=target.root.position.clone().sub(attacker.root.position);
+ if(Math.abs(toward.y)>2.5)return false;
+ toward.y=0;const distance=toward.length();
+ if(distance>range||distance<.01)return false;
+ const forward=V(-Math.sin(attacker.root.rotation.y),0,-Math.cos(attacker.root.rotation.y));
+ return forward.dot(toward.divideScalar(distance))>.45;
+}
+
+function shooting(attacker,victim,superShot=false){const cost=superShot?65:16;if(attacker.ki<cost||attacker.attack>0||attacker.stun>0)return false;attacker.ki-=cost;attacker.attack=superShot?1.12:.37;attacker.attackType=superShot?5:4;attacker.attackApplied=false;attacker.target=victim;return true}
+function spawnShot(a,b,big){
+ let start=a.root.position.clone().add(V(0,2.38,0));
+ let dir=b.root.position.clone().add(V(0,2.0,0)).sub(start).normalize();
+ if(big){
+   return spawnSustainedBeam(a,b);
+   let beam=new THREE.Group(); beam.position.copy(start); scene.add(beam);
+   const coreMat=new THREE.MeshBasicMaterial({color:a.energy,transparent:true,opacity:.88,depthWrite:false,blending:THREE.AdditiveBlending});
+   const outerMat=new THREE.MeshBasicMaterial({color:a.energy,transparent:true,opacity:.26,depthWrite:false,blending:THREE.AdditiveBlending});
+   const whiteMat=new THREE.MeshBasicMaterial({color:0xffffff,transparent:true,opacity:.72,depthWrite:false,blending:THREE.AdditiveBlending});
+   const head=make(beam,new THREE.SphereGeometry(1.05,14,12),coreMat,0,0,0);
+   const headGlow=make(beam,new THREE.SphereGeometry(1.65,14,12),outerMat,0,0,0);
+   const core=make(beam,new THREE.CylinderGeometry(.55,.78,10.5,16,1,true),coreMat,0,0,-5.2); core.rotation.x=Math.PI/2;
+   const shell=make(beam,new THREE.CylinderGeometry(1.02,1.24,12.2,16,1,true),outerMat,0,0,-6.0); shell.rotation.x=Math.PI/2;
+   const spine=make(beam,new THREE.CylinderGeometry(.15,.2,10.0,10,1,true),whiteMat,0,0,-4.9); spine.rotation.x=Math.PI/2;
+   const ring1=make(beam,new THREE.TorusGeometry(1.25,.11,6,24),outerMat,0,0,-2.2); ring1.rotation.x=Math.PI/2;
+   const ring2=make(beam,new THREE.TorusGeometry(1.6,.09,6,24),outerMat,0,0,-6.7); ring2.rotation.x=Math.PI/2;
+   beam.quaternion.setFromUnitVectors(V(0,0,-1),dir.clone().normalize());
+   bullets.push({mesh:beam,dir,from:a,to:b,t:1.28,big:true,trail:0,head,headGlow,core,shell,spine,ring1,ring2,len:12.2});
+ }else{
+   const radius=.31;let beam=make(scene,trailgeo,effectsMat(a.energy,.95),start.x,start.y,start.z);beam.scale.setScalar(radius);let halo=make(beam,trailgeo,effectsMat(0xffffff,.62));halo.scale.setScalar(.55);let outer=make(beam,trailgeo,effectsMat(a.energy,.19));outer.scale.setScalar(1.85);beam.quaternion.setFromUnitVectors(V(0,0,-1),dir.clone().normalize());let streak=make(beam,new THREE.CylinderGeometry(.12,.23,4,12,1,true),new THREE.MeshBasicMaterial({color:a.energy,transparent:true,opacity:.5,blending:THREE.AdditiveBlending,depthWrite:false}),0,0,-2);streak.rotation.x=Math.PI/2;bullets.push({mesh:beam,dir,from:a,to:b,t:2.8,big:false,trail:0})
+ }
+}
+// V16: anchored, sustained energy beam, distinct from the normal projectile.
+function spawnSustainedBeam(attacker,victim){
+ const group=new THREE.Group();scene.add(group);
+ const glowMat=new THREE.MeshBasicMaterial({color:attacker.energy,transparent:true,opacity:.28,blending:THREE.AdditiveBlending,depthWrite:false,side:THREE.DoubleSide});
+ const coreMat=new THREE.MeshBasicMaterial({color:0xffffff,transparent:true,opacity:.94,blending:THREE.AdditiveBlending,depthWrite:false,side:THREE.DoubleSide});
+ const innerMat=new THREE.MeshBasicMaterial({color:attacker.energy,transparent:true,opacity:.87,blending:THREE.AdditiveBlending,depthWrite:false,side:THREE.DoubleSide});
+ const cyl=(radius,mat)=>{const m=new THREE.Mesh(new THREE.CylinderGeometry(radius,radius,1,16,1,true),mat);m.rotation.x=Math.PI/2;group.add(m);return m};
+ const outer=cyl(1.38,glowMat),inner=cyl(.78,innerMat),core=cyl(.34,coreMat);
+ const sphere=new THREE.Mesh(new THREE.SphereGeometry(1,14,12),innerMat);group.add(sphere);
+ const rings=[];for(let i=0;i<5;i++){let ring=new THREE.Mesh(new THREE.TorusGeometry(1.15,.11,6,24),innerMat);group.add(ring);rings.push(ring)}
+ const o={attacker,victim,group,outer,inner,core,sphere,rings,life:1.45,total:1.45,hit:false};superBeams.push(o);
+ shake=Math.max(shake,.26);speedPower=Math.max(speedPower,.9);speak('¡SÚPER RAYO DE ENERGÍA!',1);
+ return o;
+}
+function tickSuperBeams(dt,time){
+ for(let i=superBeams.length-1;i>=0;i--){const b=superBeams[i];b.life-=dt;
+  const from=b.attacker.root.position.clone().add(V(0,2.45,0));
+  const to=b.victim.root.position.clone().add(V(0,2.2,0));
+  const dir=to.sub(from),distance=dir.length();dir.normalize();
+  const length=Math.max(9,Math.min(36,distance+5));
+  // Cylinder local axis points along -Z, so the beam always connects caster to target.
+  b.group.position.copy(from);b.group.quaternion.setFromUnitVectors(V(0,0,-1),dir);
+  let age=b.total-b.life;
+  const onset=Math.min(1,age/.22),falloff=Math.min(1,b.life/.25);
+  const pulse=(1+.10*Math.sin(time*28))*onset*falloff;
+  for(const [mesh,radius] of [[b.outer,1.4],[b.inner,.8],[b.core,.35]]){
+    mesh.position.set(0,0,-length*.5);mesh.scale.set(radius*pulse, length, radius*pulse);
+  }
+  b.sphere.position.set(0,0,-length);b.sphere.scale.setScalar(1.6*pulse);
+  b.rings.forEach((ring,j)=>{ring.position.set(0,0,-(j+1)*length/6);ring.scale.setScalar((1+.16*Math.sin(time*13+j))*pulse);ring.rotation.z=time*2.5+j});
+  if(!b.hit&&age>.28&&state==='fight'){
+    b.hit=true;const pos=b.victim.root.position.clone().add(V(0,2.2,0));
+    hurt(b.victim,42,b.attacker,2.5);blastAt(pos,b.attacker.energy,36,2.6);
+    impactPower=Math.max(impactPower,.95);shake=Math.max(shake,.6);
+  }
+  if(b.life<=0){b.group.traverse(o=>{if(o.isMesh&&o.geometry)o.geometry.dispose()});b.group.removeFromParent();superBeams.splice(i,1)}
+ }
+}
+function updateFighter(f,dt,t){f.stun=Math.max(0,f.stun-dt);f.guard=Math.max(0,f.guard-dt);let atkProgress=f.attack>0?1-f.attack/(f.attackType===5?1.12:f.attackType===4?.37:f.attackType===3?.53:.40):0;if(f.attack>0){f.attack=Math.max(0,f.attack-dt);if(!f.attackApplied&&atkProgress>(f.attackType===5?.68:.43)){f.attackApplied=true;if(f.attackType<=3){let target=f===player?enemy:player;if(targetInFront(f,target,f.attackType===3?4.65:3.95)){let dmg=f.attackType===3?15:8;if(hurt(target,dmg,f,1)){if(f===player){comboChain++;comboNote(comboChain)}}}else if(f===player)speak('¡ACÉRCATE!',.4)}else spawnShot(f,f.target,f.attackType===5)}}
+ // V19: golpes y patadas hacia local -Z (el frente visible del luchador).
+ const smooth=(node,axis,target,speed=16)=>{node.rotation[axis]+=(target-node.rotation[axis])*(1-Math.exp(-dt*speed));};
+ const locomotion=THREE.MathUtils.clamp(f.walk,0,1),stride=t*11.7+f.phase;
+ const cycle=Math.sin(stride),other=Math.sin(stride+Math.PI),swing=locomotion*.95;
+ const hit=f.stun>.01?Math.min(1,f.stun*4.3):0;
+ const p=THREE.MathUtils.clamp(atkProgress,0,1);
+ // Ease-in, crisp striking extension, and a readable recovery window.
+ const thrust=f.attack>0?Math.pow(Math.sin(Math.PI*p),1.05):0;
+ const prep=f.attack>0?Math.max(0,1-p*3):0;
+ const recoil=f.attack>0?Math.max(0,(p-.62)/.38):0;
+ const melee=f.attack>0&&f.attackType<=3;
+ const kick=melee&&f.attackType===3;
+ const leftStrike=melee&&f.attackType===2;
+ const rightStrike=melee&&!leftStrike&&!kick;
+ const casting=f.attack>0&&f.attackType>=4;
+ // Chest twists in the opposite direction from hips; visible impact response.
+ smooth(f.body,'y',melee?(leftStrike?-.32:.32)*thrust:Math.sin(stride)*locomotion*.09,13);
+ smooth(f.body,'z',hit*Math.sin(t*32)*.19 + (leftStrike?-.12:rightStrike?.12:0)*thrust + THREE.MathUtils.clamp(f.vel.x*.015,-.12,.12),16);
+ smooth(f.body,'x',hit*.36+locomotion*.07+(kick?-.25*thrust:0)+ (casting?-.1*thrust:0),14);
+ f.body.position.y+=(Math.abs(cycle)*locomotion*.11+Math.sin(t*2.7+f.phase)*.035-f.body.position.y)*(1-Math.exp(-dt*12));
+ smooth(f.head,'x',-hit*.22+(casting?-.15:0),10);
+ smooth(f.head,'y',-f.body.rotation.y*.36+Math.sin(t*1.3+f.phase)*.025,12);
+ // Shoulders and elbows articulate independently. Punch includes preparation and follow-through.
+ const lArm=leftStrike?(-.35*prep+1.82*thrust-.20*recoil):(casting?1.15:-cycle*swing*.8);
+ const rArm=rightStrike?(-.35*prep+1.82*thrust-.20*recoil):(casting?1.15:cycle*swing*.8);
+ smooth(f.L.shoulder,'x',lArm+hit*.7,20);
+ smooth(f.R.shoulder,'x',rArm+hit*.7,20);
+ smooth(f.L.shoulder,'z',-.18-(leftStrike?.22*thrust:0)+(casting?-.17:0),14);
+ smooth(f.R.shoulder,'z',.18+(rightStrike?.22*thrust:0)+(casting?.17:0),14);
+ smooth(f.L.elbow,'x',leftStrike?(-.93*prep-.12*thrust-.50*recoil):(casting?-.65:-.35-.22*Math.max(0,-cycle)*locomotion),19);
+ smooth(f.R.elbow,'x',rightStrike?(-.93*prep-.12*thrust-.50*recoil):(casting?-.65:-.35-.22*Math.max(0,cycle)*locomotion),19);
+ // Alternating hip/knee bends, with distinct kicking leg extension and recovery.
+ smooth(f.ll.hip,'x',-cycle*swing*.72+(kick?1.35*thrust:0)+hit*.16,17);
+ smooth(f.rl.hip,'x',cycle*swing*.72+(kick?.3*thrust:0)+hit*.16,17);
+ smooth(f.ll.knee,'x',.10+Math.max(0,cycle)*.83*locomotion+(kick?.95*prep-.03*thrust+.62*recoil:0),18);
+ smooth(f.rl.knee,'x',.10+Math.max(0,other)*.83*locomotion,18);
+ // Never animate a hidden procedural model over the imported GLB skeleton.
+f.root.position.addScaledVector(f.vel,dt);f.vel.multiplyScalar(Math.exp(-dt*6));f.root.position.y=clamp(f.root.position.y,-.4,18);f.root.position.x=clamp(f.root.position.x,-22,22);f.root.position.z=clamp(f.root.position.z,-22,22);
+for(let i=0;i<f.aura.children.length;i++){
+  let node=f.aura.children[i];
+  const pulse=.72+.28*Math.sin(t*8+i*1.35),spin=t*1.8+i*.5;
+  if(node.userData.kind==='ring'){
+    node.visible=f.charging;
+    const s=(node.userData.baseScale||1)*(1+pulse*.18);
+    node.scale.setScalar(s); node.rotation.z=spin*.22; node.material.opacity=.28+.22*pulse;
+  }else if(node.userData.kind==='spark'){
+    node.visible=f.charging;
+    const r=1.0+.22*Math.sin(t*6+i);
+    node.position.set(Math.cos(spin+node.userData.angle)*r,(node.userData.baseY||1)+Math.sin(t*5+i)*.16,Math.sin(spin+node.userData.angle)*r*.82);
+    node.scale.setScalar(.75+pulse*.65); node.material.opacity=.35+.35*pulse;
+  }else if(node.userData.kind==='shell'){
+    node.visible=f.charging;
+    node.scale.set(.92+pulse*.22,1.18+pulse*.34,.92+pulse*.22);
+    node.material.opacity=.11+.09*pulse;
+  }
+}
+f.shadow.visible=f.root.position.y<8;f.shadow.material.opacity=.17*(1-clamp(f.root.position.y/12,0,.9));f.shadow.position.y=-3.84-f.root.position.y;
+}
+let aiTimer=0,aiMoodTime=1.2,aiMood='hold',enemyAttackCooldown=0,escapeAssist=0;
+function cpu(dt){
+ if(enemy.stun>0)return;
+ const v=player.root.position.clone().sub(enemy.root.position);
+ const dFlat=V(v.x,0,v.z),d=dFlat.length(),dist=v.length();
+ const face=Math.atan2(v.x,v.z)+Math.PI; // local -Z is the face/front
+ enemy.root.rotation.y+=Math.atan2(Math.sin(face-enemy.root.rotation.y),Math.cos(face-enemy.root.rotation.y))*Math.min(1,dt*7);
+ enemy.walk=0;
+ enemyAttackCooldown=Math.max(0,enemyAttackCooldown-dt);
+ aiMoodTime-=dt;aiTimer-=dt;
+ // Spacing AI: approaches, pauses, and retreats instead of endlessly body-blocking.
+ if(aiMoodTime<=0){
+   aiMoodTime=rand(1.4,3.1);
+   aiMood=d<4.4?'retreat':(d>13?'approach':(Math.random()<.57?'hold':'approach'));
+ }
+ // When the player escapes, do not immediately chase at full speed.
+ if(escapeAssist>0 && d<12) aiMood='hold';
+ const dir=d>0.001?dFlat.multiplyScalar(1/d):V(0,0,0);
+ if(d<3.3){enemy.root.position.addScaledVector(dir,-dt*4.2);enemy.walk=.7;}
+ else if(aiMood==='retreat' && d<8.8){enemy.root.position.addScaledVector(dir,-dt*3.8);enemy.walk=.65;}
+ else if(aiMood==='approach' && d>7.4 && escapeAssist<=0){enemy.root.position.addScaledVector(dir,dt*(d>15?5.0:3.3));enemy.walk=.65;}
+ if(Math.abs(v.y)>2.5)enemy.root.position.y+=clamp(v.y,-1,1)*dt*2.2;
+ enemy.root.position.y=clamp(enemy.root.position.y,.5,17);
+ if(aiTimer<=0 && enemyAttackCooldown<=0){
+   aiTimer=rand(.65,1.5);
+   if(d<4.5 && Math.abs(v.y)<3 && Math.random()<.58){
+     if(punch(enemy,Math.random()<.36?3:1+Math.floor(rand(0,2))))enemyAttackCooldown=rand(1.45,2.2);
+   }else if(dist<22 && dist>6 && enemy.ki>18 && Math.random()<.42){
+     if(shooting(enemy,player,false))enemyAttackCooldown=rand(1.6,2.5);
+   }
+ }
+}
+function playerAction(id){
+ if(state!=='fight')return;
+ if(id==='dodge'){
+   if(player.ki<8)return;
+   player.ki-=8;player.guard=.55;
+   // Prefer joystick direction; otherwise escape backwards from opponent.
+   const away=player.root.position.clone().sub(enemy.root.position);away.y=0;
+   if(away.lengthSq()<.0001)away.set(1,0,0);
+   away.normalize();
+   if(Math.hypot(stick.x,stick.y)>.18){
+     const face=Math.atan2(enemy.root.position.x-player.root.position.x,enemy.root.position.z-player.root.position.z);
+     const forward=V(Math.sin(face),0,Math.cos(face));
+     const right=V(-forward.z,0,forward.x);
+     const desired=right.multiplyScalar(stick.x).addScaledVector(forward,-stick.y).normalize();
+     away.lerp(desired,.9).normalize();
+   }
+   player.vel.addScaledVector(away,29);
+   escapeAssist=1.85;aiMood='hold';aiMoodTime=2;
+   blastAt(player.root.position.clone().add(V(0,2,0)),player.auraColor,10,.5);
+   speak('¡ESCAPE!',.4);return;
+ }
+ if(id==='punch'){
+   // No automatic teleport toward the opponent when punching.
+   if(punch(player,1+comboChain%3))player.ki=Math.min(100,player.ki+3);
+   return;
+ }
+ if(id==='kick'){if(punch(player,3))player.ki=Math.min(100,player.ki+4);return}
+ if(id==='beam'){if(!shooting(player,enemy,false))speak('¡CARGA KI!',.4);return}
+ if(id==='ultimate'){if(shooting(player,enemy,true))speak('⚡ ¡ATAQUE DEFINITIVO!',1);else speak('NECESITAS 65 DE KI',.7)}
+}
+// Multitouch-safe input: each control owns its pointer until release/cancel.
+const heldPointers=new Map();
+function pressFeedback(el,down){el.classList.toggle('pressed',down)}
+for(const id of ['punch','kick','beam','ultimate','dodge']){
+ const el=$(id);
+ el.addEventListener('pointerdown',ev=>{if(ev.pointerType==='mouse'&&ev.button!==0)return;ev.preventDefault();try{el.setPointerCapture(ev.pointerId)}catch(_){}pressFeedback(el,true);playerAction(id)});
+ for(const name of ['pointerup','pointercancel','lostpointercapture'])el.addEventListener(name,()=>pressFeedback(el,false));
+}
+for(const id of ['up','down','charge']){
+ const el=$(id);
+ el.addEventListener('pointerdown',ev=>{if(ev.pointerType==='mouse'&&ev.button!==0)return;ev.preventDefault();try{el.setPointerCapture(ev.pointerId)}catch(_){}heldPointers.set(id,ev.pointerId);keys[id]=true;pressFeedback(el,true)});
+ const release=ev=>{if(ev&&heldPointers.get(id)!==ev.pointerId)return;heldPointers.delete(id);keys[id]=false;pressFeedback(el,false)};
+ for(const name of ['pointerup','pointercancel','lostpointercapture'])el.addEventListener(name,release);
+}
+const sEl=$('stick'),nub=$('nub');let activeStickPointer=null;
+function steer(ev){const r=sEl.getBoundingClientRect(),x=ev.clientX-r.left-r.width/2,y=ev.clientY-r.top-r.height/2,max=r.width*.34,length=Math.hypot(x,y),factor=Math.min(1,max/(length||1));let vx=x*factor/max,vy=y*factor/max;const mag=Math.hypot(vx,vy),dead=.13;if(mag<dead){stick.x=0;stick.y=0}else{const smooth=(mag-dead)/(1-dead)/mag;stick.x=vx*smooth;stick.y=vy*smooth}nub.style.transform=`translate(${x*factor}px,${y*factor}px)`}
+function unsteer(){activeStickPointer=null;stick.x=stick.y=0;nub.style.transform='';sEl.classList.remove('active')}
+sEl.addEventListener('pointerdown',e=>{if(activeStickPointer!==null)return;if(e.pointerType==='mouse'&&e.button!==0)return;e.preventDefault();activeStickPointer=e.pointerId;try{sEl.setPointerCapture(e.pointerId)}catch(_){}sEl.classList.add('active');steer(e)});
+sEl.addEventListener('pointermove',e=>{if(e.pointerId===activeStickPointer){e.preventDefault();steer(e)}});
+for(const name of ['pointerup','pointercancel','lostpointercapture'])sEl.addEventListener(name,e=>{if(e.pointerId===activeStickPointer)unsteer()});
+function resetMobileControls(){unsteer();for(const id of ['up','down','charge']){heldPointers.delete(id);keys[id]=false}document.querySelectorAll('#controls .btn').forEach(el=>el.classList.remove('pressed'))}
+window.addEventListener('blur',resetMobileControls);document.addEventListener('visibilitychange',()=>{if(document.hidden)resetMobileControls()});
+window.addEventListener('contextmenu',e=>{if(e.target.closest('#controls,#stick'))e.preventDefault()});
+// Keyboard fallback lets the game be tested in desktop browsers.
+window.addEventListener('keydown',e=>{if(e.repeat)return;const k=e.key.toLowerCase();if(k==='j')playerAction('punch');if(k==='i')playerAction('kick');if(k==='k')playerAction('beam');if(k==='l')playerAction('ultimate');if(k==='shift')playerAction('dodge');if(k==='q')keys.up=true;if(k==='e')keys.down=true;if(k===' ')keys.charge=true});window.addEventListener('keyup',e=>{const k=e.key.toLowerCase();if(k==='q')keys.up=false;if(k==='e')keys.down=false;if(k===' ')keys.charge=false});
+function setup(){resetMobileControls();player.hp=enemy.hp=100;player.ki=100;enemy.ki=85;player.stun=enemy.stun=player.attack=enemy.attack=0;player.vel.set(0,0,0);enemy.vel.set(0,0,0);player.root.position.set(-3,1.3,1);enemy.root.position.set(3,1.3,-1);for(let x of bullets)scene.remove(x.mesh);bullets=[];for(let b of superBeams)b.group.removeFromParent();superBeams=[];for(let x of objects)scene.remove(x.obj);objects=[];roundTime=99;elapsed=0;comboChain=0;aiTimer=1;aiMoodTime=1.5;aiMood='hold';enemyAttackCooldown=1.8;escapeAssist=0;state='fight';$('overlay').style.display='none';speak('¡A COMBATIR!',1)}function finished(){state='end';$('overlay').style.display='grid';$('menu h1').innerHTML=enemy.hp<=0?'¡VICTORIA!':player.hp<=0?'DERROTA':'FIN DEL TIEMPO';$('menu p').innerHTML='¿Otra pelea?';$('start').textContent='VOLVER A JUGAR'}$('start').onclick=setup;
+function loop(now){requestAnimationFrame(loop);let dt=Math.min(.045,(now-last)/1000||.016);last=now;elapsed+=dt;annTime-=dt;comboTextTime-=dt;if(annTime<0)$('ann').classList.remove('on');if(comboTextTime<0)$('combo').classList.remove('on');if(stopTime>0){stopTime-=dt;dt*=.20}
+if(state==='fight'){escapeAssist=Math.max(0,escapeAssist-dt);roundTime=Math.max(0,roundTime-dt);let aim=enemy.root.position.clone().sub(player.root.position),face=Math.atan2(aim.x,aim.z)+Math.PI;player.root.rotation.y+=Math.atan2(Math.sin(face-player.root.rotation.y),Math.cos(face-player.root.rotation.y))*Math.min(1,dt*13);let f=V(-Math.sin(face),0,-Math.cos(face)),r=V(-f.z,0,f.x);let motion=r.multiplyScalar(stick.x).addScaledVector(f,-stick.y);if(motion.lengthSq()>1)motion.normalize();player.root.position.addScaledVector(motion,dt*11.0);player.root.position.y+=dt*(Number(keys.up)-Number(keys.down))*6;player.walk=Math.min(1,motion.length());player.charging=keys.charge;enemy.charging=false;if(keys.charge){player.ki=Math.min(100,player.ki+dt*29);if(Math.random()<.22)blastAt(player.root.position.clone().add(V(rand(-1,1),rand(0,4),rand(-1,1))),player.auraColor,1,.18)}else player.ki=Math.min(100,player.ki+dt*3);enemy.ki=Math.min(100,enemy.ki+dt*4);cpu(dt);if(enemy.root.position.distanceTo(player.root.position)>6)comboChain=0;if(player.hp<=0||enemy.hp<=0||roundTime<=0)finished()}
+updateFighter(player,dt,elapsed);updateFighter(enemy,dt,elapsed);tickRigs(dt);tickMocap(dt);for(let i=bullets.length-1;i>=0;i--){let b=bullets[i];b.t-=dt;let speed=b.big?24:34;b.mesh.position.addScaledVector(b.dir,dt*speed);b.mesh.rotation.y+=dt*(b.big?3:8);
+ if(b.big){
+   const pulse=.82+.18*Math.sin(elapsed*26+i);
+   if(b.head)b.head.scale.setScalar(.95+pulse*.24);
+   if(b.headGlow)b.headGlow.scale.setScalar(1.25+pulse*.48);
+   if(b.shell)b.shell.scale.set(1+.14*pulse,1,1+.14*pulse);
+   if(b.core)b.core.scale.set(.95+.08*pulse,1,.95+.08*pulse);
+   if(b.spine)b.spine.scale.set(.88+.1*pulse,1,.88+.1*pulse);
+   if(b.ring1){b.ring1.rotation.z+=dt*6;b.ring1.scale.setScalar(1+.12*pulse)}
+   if(b.ring2){b.ring2.rotation.z-=dt*5;b.ring2.scale.setScalar(1.05+.16*pulse)}
+ }
+ b.trail-=dt;if(b.trail<0){
+   b.trail=b.big?.018:.055;
+   let tp=b.mesh.position.clone();
+   if(b.big) tp.addScaledVector(b.dir,-(b.len||10)*.45);
+   let w=make(scene,trailgeo,effectsMat(b.from.energy,b.big?.32:.45),tp.x,tp.y,tp.z);
+   w.scale.setScalar(b.big?rand(.55,1.0):rand(.15,.34));objects.push({obj:w,vel:V(),life:b.big?.12:.18,max:b.big?.12:.18,grow:b.big?-3.5:-2})
+ }
+ let hitPos=b.to.root.position.clone().add(V(0,2.2,0));
+ let hitDist=b.mesh.position.distanceTo(hitPos);
+ if(state==='fight'&&hitDist<(b.big?2.4:1.04)){
+   hurt(b.to,b.big?42:12,b.from,b.big?2.8:1);
+   if(b.big){blastAt(hitPos,b.from.energy,34,2.1);speak('☄️ ¡KAMEHAMEHA!',.95)}
+   b.t=0
+ }
+ if(b.t<=0){scene.remove(b.mesh);bullets.splice(i,1)}
+}tickSuperBeams(dt,elapsed);for(let i=objects.length-1;i>=0;i--){let x=objects[i];x.life-=dt;x.obj.position.addScaledVector(x.vel,dt);x.vel.multiplyScalar(.95);x.obj.scale.addScalar(x.grow*dt);x.obj.scale.clampScalar(.001,100);if(x.obj.material.opacity!==undefined)x.obj.material.opacity=Math.max(0,x.life/x.max);if(x.life<=0){scene.remove(x.obj);objects.splice(i,1)}}
+$('hp').style.width=player.hp+'%';$('ehp').style.width=enemy.hp+'%';$('ki').style.width=player.ki+'%';$('time').textContent=Math.ceil(roundTime);
+// V19: Tercera persona: cámara detrás y a un costado del jugador, rival al frente.
+let a=player.root.position,b=enemy.root.position;
+let toward=b.clone().sub(a);toward.y=0;
+if(toward.lengthSq()<.01)toward.set(1,0,0);
+toward.normalize();
+let side=V(-toward.z,0,toward.x);
+let separation=a.distanceTo(b);
+let mid=a.clone().lerp(b,clamp(.26+separation*.009,.27,.43)).add(V(0,2.05,0));
+const camRange=clamp(7.4+separation*.24,8.0,14.8);
+let follow=a.clone().addScaledVector(toward,-camRange).addScaledVector(side,4.6).add(V(0,4.05+clamp(separation*.04,0,.8),0));
+if(shake>0){follow.add(V(rand(-shake,shake),rand(-shake,shake),rand(-shake,shake)*.25));shake=Math.max(0,shake-dt*1.4)}camera.position.lerp(follow,1-Math.exp(-dt*5));let look=mid.clone();camera.lookAt(look);camera.fov=THREE.MathUtils.lerp(camera.fov,clamp(52+separation*.55,54,68),dt*2);camera.updateProjectionMatrix();impactPower=Math.max(0,impactPower-dt*2.8);speedPower=Math.max(0,speedPower-dt*1.9);impactNode.style.opacity=impactPower.toFixed(3);speedNode.style.opacity=speedPower.toFixed(3);renderer.render(scene,camera)}
+$('start').disabled=false;$('start').textContent='COMENZAR PELEA';$('status').textContent='✓ V21: Rokoko por animación y diagnóstico de carga.';requestAnimationFrame(loop);addEventListener('resize',()=>{renderer.setSize(innerWidth,innerHeight);camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix()});
+</script></body></html>
