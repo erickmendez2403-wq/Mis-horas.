@@ -20,6 +20,25 @@ body.anime-on[data-anime="goku"] #extraComparePanel .cmp-header:after{background
 body.anime-on[data-anime="vegeta"] #extraComparePanel .cmp-header:after{background:linear-gradient(90deg,#120f2af4 0%,#18103ddb 51%,#2d195244 100%)}
 @media(max-width:390px){body.anime-on #extraComparePanel .cmp-header{min-height:132px}}
 
+
+/* ITACHI VISIBLE — applies only while anime Itachi theme is active */
+body.anime-on[data-anime="itachi"]{--accent:#ff414e;--hero1:#7b102b;--hero2:#210c19;--tile:#371522;--panel:#19111d}
+body.anime-on[data-anime="itachi"] .anime-scene{height:235px!important;background-position:75% 54%!important;border:1px solid #ff475d!important;box-shadow:inset 0 0 24px #ff143b55,0 0 28px #c4093355,0 14px 32px #000b!important;}
+body.anime-on[data-anime="itachi"] .anime-scene::after{background:linear-gradient(90deg,#120913b5 0%,#18091552 42%,#0b091412 80%),linear-gradient(0deg,#100a13c9 0%,transparent 44%)!important}
+body.anime-on[data-anime="itachi"] .anime-scene-tag{font-size:20px!important;letter-spacing:.13em!important;text-shadow:0 2px 8px black,0 0 17px #ff182b!important}
+body.anime-on[data-anime="itachi"] .anime-scene-tag::before{content:'◉  SHARINGAN  •  AKATSUKI';display:block;color:#ff8c99;font-size:10px;letter-spacing:.13em;margin-bottom:4px}
+body.anime-on[data-anime="itachi"] #extraComparePanel{--cmp-accent:#ff4c66;box-shadow:0 0 0 1px #e73b5555,0 14px 33px #000a,0 0 28px #ff253722!important}
+body.anime-on[data-anime="itachi"] #extraComparePanel .cmp-header{min-height:218px!important;align-items:flex-end!important;padding:18px 16px 19px!important;border-bottom:1px solid #ff4961!important;}
+body.anime-on[data-anime="itachi"] #extraComparePanel .cmp-header::before{background-position:82% 56%!important;background-size:cover!important;filter:brightness(1.6) contrast(1.13) saturate(1.2)!important}
+body.anime-on[data-anime="itachi"] #extraComparePanel .cmp-header::after{background:linear-gradient(90deg,#100815ee 0%,#17091ab8 47%,#10081512 100%),linear-gradient(0deg,#130714f0 0%,transparent 48%)!important}
+body.anime-on[data-anime="itachi"] #extraComparePanel .cmp-kicker::before{content:'◉ ITACHI UCHIHA  /  ';color:#ff647b;text-shadow:0 0 10px #f93547}
+body.anime-on[data-anime="itachi"] #extraComparePanel .cmp-header h2{text-shadow:0 2px 8px #000,0 0 16px #ff334488}
+body.anime-on[data-anime="itachi"] #extraComparePanel .cmp-header-icon{background:#9b1431;border:1px solid #ff8898;box-shadow:0 0 21px #ff284e88}
+body.anime-on[data-anime="itachi"] #extraComparePanel .cmp-app{background:linear-gradient(145deg,#63192f,#22101f)!important;border-color:#ff536c8a!important}
+body.anime-on[data-anime="itachi"] #extraComparePanel .cmp-paid{background:linear-gradient(145deg,#302333,#131725)!important;border-color:#c09cb488!important}
+body.anime-on[data-anime="itachi"] #extraComparePanel .cmp-progress-fill{background:linear-gradient(90deg,#b71136,#ff5277)!important}
+body.anime-on[data-anime="itachi"] #extraComparePanel .compare-pending{background:linear-gradient(145deg,#680e29,#240f1f)!important;border-color:#ff506f99!important}
+@media(max-width:390px){body.anime-on[data-anime="itachi"] #extraComparePanel .cmp-header{min-height:195px!important}}
 </style><style>.money-toggle{margin:10px 0 4px;padding:9px 15px;border:1px solid var(--accent,#73b4f8);border-radius:12px;background:rgba(20,44,70,.85);color:#f0f6ff;font-weight:700;font-size:13px;cursor:pointer}.money-toggle:focus-visible{outline:3px solid #fff;outline-offset:2px}.nav{--menu-icon-color:#67aeff}.nav button svg{color:var(--menu-icon-color)}.nav button.active svg{filter:drop-shadow(0 0 4px var(--menu-icon-color))}</style><style id="anime-extra-css">
 /* Extra visual aislado: al desactivar se restauran todos los estilos originales */
 .anime-extra-controls{display:grid;gap:12px}.anime-extra-toggle{display:flex;align-items:center;justify-content:space-between;gap:12px}.anime-extra-toggle input{width:23px;height:23px;accent-color:#f59e0b}.anime-extra-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.anime-extra-choices button{padding:12px 8px;border:2px solid #42536c;border-radius:14px;color:#fff;background:#213247;font-weight:750}.anime-extra-choices button[aria-pressed="true"]{border-color:#fff;box-shadow:0 0 0 2px #f59e0b}.anime-extra-choices button small{display:block;font-size:11px;font-weight:400;opacity:.85;margin-top:3px}
@@ -35,7 +54,7 @@ body.anime-on .anime-scene{display:block;height:190px;border-radius:22px;margin:
 body.anime-on .anime-scene::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--bg2) 0%,transparent 55%),linear-gradient(90deg,#0008,transparent 65%)}
 body.anime-on .anime-scene-tag{position:absolute;bottom:12px;left:14px;z-index:1;color:white;font-weight:900;letter-spacing:.12em;font-size:16px;text-shadow:0 2px 12px #000}
 body.anime-on[data-anime="naruto"] .anime-scene{background-image:url('./fondo-naruto.jpg')}
-body.anime-on[data-anime="itachi"] .anime-scene{background-image:url('./fondo-itachi.jpg')}
+body.anime-on[data-anime="itachi"] .anime-scene{background-image:url('./fondo-itachi.jpg?v=itachi-visible-2')}
 body.anime-on[data-anime="goku"] .anime-scene{background-image:url('./fondo-goku.jpg')}
 body.anime-on[data-anime="vegeta"] .anime-scene{background-image:url('./fondo-vegeta.jpg')}
 body.anime-on .nav svg{width:25px;height:25px;stroke-width:2.1}
@@ -103,11 +122,58 @@ body.anime-on #extraComparePanel .cmp-progress-fill{background:linear-gradient(9
 body.anime-on #extraComparePanel .cmp-input-shell:focus-within,
 body.anime-on #extraComparePanel .cmp-money-input:focus-within{outline:2px solid var(--cmp-accent);outline-offset:2px}
 body.anime-on[data-anime="naruto"] #extraComparePanel{--cmp-accent:#ffac48;--cmp-art:url('./fondo-naruto.jpg')}
-body.anime-on[data-anime="itachi"] #extraComparePanel{--cmp-accent:#f67c86;--cmp-art:url('./fondo-itachi.jpg')}
+body.anime-on[data-anime="itachi"] #extraComparePanel{--cmp-accent:#f67c86;--cmp-art:url('./fondo-itachi.jpg?v=itachi-visible-2')}
 body.anime-on[data-anime="goku"] #extraComparePanel{--cmp-accent:#74c8ff;--cmp-art:url('./fondo-goku.jpg')}
 body.anime-on[data-anime="vegeta"] #extraComparePanel{--cmp-accent:#bb9bff;--cmp-art:url('./fondo-vegeta.jpg')}
 @media(max-width:390px){body.anime-on #extraComparePanel .cmp-header{margin:-13px -13px 16px;padding:16px 12px;min-height:116px}}
 
+</style><style id="anime-theme-menu-v2">
+/* MIS HORAS 4 TEMAS — identidad completa de navegación e historial. Inicio conserva estructura y funciones. */
+body.anime-on{--theme-halo:rgba(255,186,72,.3);--theme-edge:rgba(255,186,72,.48);--theme-field:rgba(24,18,27,.9);--theme-glow:#ffad43;--theme-motif:'✦';}
+body.anime-on[data-anime="naruto"]{--theme-halo:#ff9c3442;--theme-edge:#ffb45a8a;--theme-field:#261a20;--theme-glow:#ffb22e;--theme-motif:'◉';}
+body.anime-on[data-anime="itachi"]{--theme-halo:#fa264142;--theme-edge:#ff4e708c;--theme-field:#190f1b;--theme-glow:#ff3c65;--theme-motif:'◉';}
+body.anime-on[data-anime="goku"]{--theme-halo:#45b0ff45;--theme-edge:#5dc6ff90;--theme-field:#11243b;--theme-glow:#40b9ff;--theme-motif:'✦';}
+body.anime-on[data-anime="vegeta"]{--theme-halo:#8a78ff55;--theme-edge:#bca5ff95;--theme-field:#171833;--theme-glow:#a58bff;--theme-motif:'⚡';}
+body.anime-on .top{padding:9px 12px;border-radius:20px;background:linear-gradient(110deg,color-mix(in srgb,var(--panel) 85%,transparent),transparent);border:1px solid var(--theme-edge);box-shadow:0 10px 30px #0004,inset 0 1px #fff1}
+body.anime-on .brand img{border:1px solid var(--theme-edge);box-shadow:0 0 20px var(--theme-halo)}
+body.anime-on .theme-toggle{border:1px solid var(--theme-edge);background:linear-gradient(140deg,var(--hero1),var(--bg2));box-shadow:0 0 16px var(--theme-halo)}
+body.anime-on .anime-scene{height:222px;background-size:cover!important;border-radius:24px;border:1px solid var(--theme-edge);box-shadow:inset 0 0 26px var(--theme-halo),0 16px 35px #0009;isolation:isolate}
+body.anime-on .anime-scene::after{background:linear-gradient(0deg,var(--bg2) 0%,#0000 55%),linear-gradient(90deg,#0009 0%,#0001 70%)}
+body.anime-on .anime-scene-tag{font-size:clamp(17px,5vw,22px);text-transform:uppercase;letter-spacing:.14em;text-shadow:0 2px 6px #000,0 0 15px var(--theme-glow)}
+body.anime-on .anime-scene-tag::before{display:block;font-size:10px;letter-spacing:.21em;font-weight:800;margin-bottom:5px;color:#ffdfa0;content:'MODO ANIME  ·  NINJA'}
+body.anime-on[data-anime="itachi"] .anime-scene-tag::before{content:'◉  SHARINGAN  ·  AKATSUKI';color:#ff8c9e}
+body.anime-on[data-anime="goku"] .anime-scene-tag::before{content:'✦  KI  ·  GUERRERO SOLAR';color:#9adeff}
+body.anime-on[data-anime="vegeta"] .anime-scene-tag::before{content:'⚡  PODER  ·  PRÍNCIPE SAIYAJIN';color:#bfc3ff}
+body.anime-on[data-anime="naruto"] .anime-scene{background-position:70% 42%!important;}
+body.anime-on[data-anime="goku"] .anime-scene{background-position:70% 41%!important;}
+body.anime-on[data-anime="vegeta"] .anime-scene{background-position:68% 42%!important;}
+body.anime-on .panel{border:1px solid color-mix(in srgb,var(--theme-edge) 48%,transparent);box-shadow:0 12px 30px #0004,inset 0 1px #ffffff10;border-radius:21px;}
+body.anime-on .panel h2{color:#fff;text-shadow:0 0 16px var(--theme-halo)}
+body.anime-on .panel h2::before{content:var(--theme-motif);display:inline-flex;align-items:center;justify-content:center;margin-right:9px;width:25px;height:25px;flex-shrink:0;background:color-mix(in srgb,var(--accent) 17%,transparent);border:1px solid var(--theme-edge);color:var(--accent);border-radius:9px;font-size:13px}
+body.anime-on .tile,body.anime-on .listitem,body.anime-on .notice{background:linear-gradient(135deg,color-mix(in srgb,var(--tile) 80%,transparent),color-mix(in srgb,var(--bg2) 85%,transparent));border:1px solid color-mix(in srgb,var(--theme-edge) 48%,transparent);box-shadow:inset 0 1px #fff1}
+body.anime-on .primary{background:linear-gradient(112deg,var(--accent),color-mix(in srgb,var(--accent) 70%,white));box-shadow:0 4px 20px var(--theme-halo);color:#101320;border:1px solid #ffffff55}
+body.anime-on .secondary,body.anime-on .monthnav button{background:linear-gradient(135deg,var(--hero1),var(--bg2));border-color:var(--theme-edge);color:white}
+body.anime-on .field{background:var(--theme-field);border-color:color-mix(in srgb,var(--theme-edge) 72%,transparent);box-shadow:inset 0 2px 10px #0004}
+body.anime-on .field:focus{outline:2px solid var(--accent);outline-offset:1px}
+body.anime-on .rate.selected,body.anime-on .theme-choice.chosen{border-color:var(--accent);box-shadow:0 0 15px var(--theme-halo)}
+body.anime-on .nav{background:color-mix(in srgb,var(--panel) 95%,#020710);border-top:2px solid var(--theme-edge);box-shadow:0 -10px 36px #0009}
+body.anime-on .nav button.active{background:linear-gradient(150deg,color-mix(in srgb,var(--accent) 24%,transparent),color-mix(in srgb,var(--hero2) 88%,transparent));border:1px solid var(--theme-edge);box-shadow:0 0 22px var(--theme-halo)}
+/* The themed overtime comparison adopts the current hero's palette while retaining positive/negative meaning. */
+body.anime-on #extraComparePanel{--cmp-accent:var(--accent);--cmp-glow:var(--theme-halo);border-color:var(--theme-edge)!important;box-shadow:0 12px 35px #0009,0 0 24px var(--theme-halo)}
+body.anime-on #extraComparePanel .cmp-header{min-height:195px;}
+body.anime-on #extraComparePanel .cmp-header::before{background-size:cover;background-position:73% 43%;filter:brightness(1.18) saturate(1.18)}
+body.anime-on #extraComparePanel .cmp-header::after{background:linear-gradient(90deg,#070b18e8 0%,#071022bf 45%,#0509162c 100%),linear-gradient(0deg,#060913eb,transparent 65%)}
+body.anime-on #extraComparePanel .cmp-header-icon{background:var(--hero1)!important;border-color:var(--theme-edge)!important;color:white!important;box-shadow:0 0 22px var(--theme-halo)}
+body.anime-on #extraComparePanel .cmp-kicker{letter-spacing:.12em}
+body.anime-on[data-anime="naruto"] #extraComparePanel .cmp-kicker::before{content:'◉ NARUTO  /  ';color:#ffc26a}
+body.anime-on[data-anime="goku"] #extraComparePanel .cmp-kicker::before{content:'✦ GOKU  /  ';color:#87d8ff}
+body.anime-on[data-anime="vegeta"] #extraComparePanel .cmp-kicker::before{content:'⚡ VEGETA  /  ';color:#c0b6ff}
+body.anime-on #extraComparePanel .cmp-app{background:linear-gradient(145deg,color-mix(in srgb,var(--hero1) 70%,#0c1730),var(--bg2))!important;border-color:var(--theme-edge)!important}
+body.anime-on #extraComparePanel .cmp-paid{background:linear-gradient(145deg,#154c4a,#0c242d)!important;border-color:#72d5b366!important}
+body.anime-on #extraComparePanel .cmp-progress-fill{background:linear-gradient(90deg,var(--hero1),var(--accent))!important;box-shadow:0 0 14px var(--theme-halo)}
+body.anime-on #extraComparePanel .cmp-input-shell,body.anime-on #extraComparePanel .cmp-entry{background:color-mix(in srgb,var(--panel) 85%,#050711);border-color:var(--theme-edge)}
+body.anime-on #extraComparePanel .compare-pending{border-color:#ff6b7599!important;background:linear-gradient(135deg,#482033,#1c1325)!important}
+@media(max-width:390px){body.anime-on .anime-scene{height:195px}body.anime-on #extraComparePanel .cmp-header{min-height:170px}}
 </style></head><body><main class="app"><header class="top"><div class="brand"><img src="icon-192.png" alt="Logo MIS HORAS"><div><strong>MIS HORAS</strong><div class="sub">CONTROL PERSONAL DE HORAS EXTRAS</div></div></div><button class="theme-toggle" id="themeToggle" aria-label="Cambiar apariencia" title="Cambiar colores">🎨</button></header><div class="theme-panel hide" id="themePanel"><h2 style="font-size:15px;margin:0 0 12px">🎨 Apariencia</h2><div class="theme-grid"><button class="theme-choice" data-theme="azul"><span class="theme-swatch"><i style="background:#101e33"></i><i style="background:#73b4f8"></i></span>Azul original</button><button class="theme-choice" data-theme="negro"><span class="theme-swatch"><i style="background:#111111"></i><i style="background:#888888"></i></span>Negro</button><button class="theme-choice" data-theme="morado"><span class="theme-swatch"><i style="background:#39205b"></i><i style="background:#a78bfa"></i></span>Morado</button><button class="theme-choice" data-theme="verde"><span class="theme-swatch"><i style="background:#153d35"></i><i style="background:#34d399"></i></span>Verde oscuro</button><button class="theme-choice" data-theme="gris"><span class="theme-swatch"><i style="background:#353b47"></i><i style="background:#94a3b8"></i></span>Gris</button><button class="theme-choice" data-theme="rojo"><span class="theme-swatch"><i style="background:#111111"></i><i style="background:#dc2626"></i></span>Rojo y negro</button></div><p class="foot">El color se guarda en este dispositivo.</p></div>
 <section id="inicio" class="screen active"><div class="anime-scene" aria-hidden="true"><div class="anime-scene-tag" id="animeSceneTag">NARUTO</div></div><div class="hero"><div class="eyebrow">✧ Acumulado del período</div><div class="amount" id="homeMoney">$0</div><button type="button" class="money-toggle" data-money-toggle aria-label="Mostrar montos protegidos">🔒 Mostrar montos</button><div class="hero-foot"><span id="homeMonth">Octubre 2026</span><span class="green" id="homeHours">0 h 00 min extras</span></div></div><div class="panel"><h2>◷ Horario establecido <span class="muted small">⚙️ Editable en Ajustes</span></h2><div class="two"><div class="tile"><span class="small">Entrada fija</span><b id="fixedEntry">08:00</b></div><div class="tile"><span class="small">Salida fija</span><b id="fixedExit">17:00</b></div></div><div class="line small muted"><span id="fixedDays">Lunes a viernes</span><span id="fixedLunch">60 min colación</span></div></div><div class="panel"><h2>✎ Registro del día</h2><div class="group"><label class="label" for="date">Fecha</label><input class="field" type="date" id="date"></div><div class="two"><div class="group"><label class="label" for="entry">☀ Entrada real</label><input class="field" type="time" id="entry" value="08:00"></div><div class="group"><label class="label" for="exit">◕ Salida real</label><input class="field" type="time" id="exit" value="17:00"></div></div><div class="group"><label class="label">Recargo general del día</label><div class="rates" id="rates"><button class="rate selected" data-rate="50">50 %</button><button class="rate" data-rate="75">75 %</button><button class="rate" data-rate="100">100 %</button></div></div><hr class="rule"><div class="line"><span class="muted">Extras mañana</span><strong id="morning">0 h 00 min</strong></div><div class="line"><span class="muted">Extras tarde</span><strong id="evening">0 h 00 min</strong></div><div class="daily"><div class="eyebrow">Monto de horas extras del día</div><div class="big" id="dailyMoney">$0</div><button type="button" class="money-toggle" data-money-toggle aria-label="Mostrar montos protegidos">🔒 Mostrar montos</button><div class="small muted" id="dailyHours">0 h 00 min · Recargo 50 %</div></div><p class="foot" id="warning"></p><button class="primary" id="save">Guardar jornada</button></div><h2 style="font-size:16px">Últimos registros <button class="secondary" style="float:right;font-size:12px" data-go="historial">Ver todos →</button></h2><div id="recent"></div></section>
 <section id="historial" class="screen"><h1 class="page-title">Historial de jornadas</h1><div class="hero"><div class="eyebrow">Total del período seleccionado</div><div class="amount" id="historyMoney">$0</div><button type="button" class="money-toggle" data-money-toggle aria-label="Mostrar montos protegidos">🔒 Mostrar montos</button><div class="hero-foot"><span id="historyHours">0 h 00 min extras</span><span id="historyDays">0 días</span></div></div><div class="monthnav"><button id="prev">‹</button><span id="monthLabel"></span><button id="next">›</button></div><p class="muted small center" id="periodLabel"></p><div class="panel" id="extraComparePanel">

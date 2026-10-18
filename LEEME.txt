@@ -1,7 +1,1 @@
-MIS HORAS — Comparación Anime Final
-
-Actualiza los archivos descomprimidos en el repositorio de MIS HORAS (NO Saiyan Arena). Conserva tus datos locales haciendo antes una copia desde Ajustes > Respaldo.
-
-Historial > Comparación de horas extras: tarjetas para horas/monto calculados, horas/monto pagados y diferencias; usa el PIN existente. El panel adopta los estilos Naruto, Itachi, Goku o Vegeta al activar Modo Anime y vuelve al tema normal al apagarlo. Inicio y el cálculo de horas no fueron modificados.
-
-Las imágenes son fondos originales ampliados y realzados, no ilustraciones nuevas. El diseño gráfico mostrado en conversación era conceptual y puede diferir del HTML real.
+MIS HORAS — MENUS ANIME TEMATICOS. Se actualizan fondos, cabeceras, paneles, navegacion y comparacion de horas extras por personaje (Naruto, Itachi, Goku y Vegeta). No modifica los calculos ni los datos guardados. ANTES de actualizar exporta respaldo. Sube el CONTENIDO del ZIP a la raiz de tu repositorio MIS HORAS, conserva los nombres de archivo y confirma los cambios.
